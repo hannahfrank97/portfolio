@@ -1,0 +1,9 @@
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Akatab&family=Gruppo&family=Narnoor&family=Victor+Mono:wght@100&display=swap');
+
+body {
+    background: linear-gradient(180deg, #501D78 0%, #1D1324 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
