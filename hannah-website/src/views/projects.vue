@@ -10,11 +10,19 @@
             <h2 class="project_semester">Second semester - BSc Creative Computing</h2>
         </div>
         <div class="right_side">
+            <div class="right-content">
             <p class="project_text">A magical online bookshop.</p>
-            <router-link to="#" class="project_Link">View Project</router-link>
+                <div class="project_info">
+                    <router-link to="#" class="project_Link">View Project</router-link>
+                    <arrow class="arrow" />
+                </div>
+            </div>
         </div>
-        <arrow />
+        <div class="middle_side">
+            <img class="mockup" src="@/assets/images/mockup.png" alt="project mockup"/>
+        </div>
     </div>
+
 </template>
 
 <script>
@@ -42,19 +50,15 @@ export default {
 .content_box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center; /* Vertically align content to the start of the container */
+    justify-content: space-evenly;
+    align-items: center;
     padding: 40px;
-}
-
-.pro {
-
 }
 
 .left_side {
     display: flex;
-    flex-direction: column; /* Stack elements vertically within the left side */
-    align-items: center; /* Vertically align content to the start of the left side */
+    flex-direction: column;
+    align-items: center;
 }
 
 .right_side {
@@ -64,31 +68,58 @@ export default {
     margin-right: 10%;
 }
 
+.middle_side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -20px !important;
+}
+
 .left-content {
     display: flex;
-    align-items: center; /* Horizontally align content within the left side */
+    align-items: center;
+}
+
+.right-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+}
+
+.project_info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .roundball {
-    margin-right: 20px; /* Add space between the ball and project name */
+    margin-right: 20px;
 }
 
 .project_name {
     font-family: 'Narnoor', sans-serif;
     color: whitesmoke;
     font-weight: lighter;
+    font-size: 28px;
+
 }
 
 .project_semester {
     font-family: 'Narnoor', sans-serif;
     font-weight: lighter;
     color: whitesmoke;
+    margin-left: 30%;
+    font-size: 18px;
+    white-space: nowrap;
+    margin-top: 0;
 }
 
 .project_text {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: lighter;
     color: #EA70DE;
+    font-size: 28px;
 }
 
 .project_Link {
@@ -96,5 +127,14 @@ export default {
     color: #EA70DE;
     font-weight: bolder;
     text-decoration: none;
+    font-size: 24px;
+}
+
+.arrow {
+    margin-left: 20px;
+}
+
+.mockup {
+    width: 150%;
 }
 </style>

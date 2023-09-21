@@ -31,7 +31,7 @@ export default {
     color: #EA70DE;
     text-shadow: 4px 1px 4px #B062ED;
     font-family: 'Victor Mono', monospace;
-    font-size: 50px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -40,7 +40,7 @@ export default {
 .regular-text {
     color: #E7BDE2;
     font-family: 'Victor Mono', monospace;
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
