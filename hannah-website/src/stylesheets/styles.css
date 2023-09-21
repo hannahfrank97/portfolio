@@ -1,5 +1,10 @@
+
 /*fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Akatab&family=Gruppo&family=Narnoor&family=Victor+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Akatab&family=Gruppo&family=Narnoor&family=Victor+Mono:wght@100&display=swap=Nunito+Sans:opsz,wght@6..12,200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
     background: linear-gradient(180deg, #501D78 0%, #1D1324 100%);

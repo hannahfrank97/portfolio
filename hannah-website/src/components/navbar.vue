@@ -1,25 +1,64 @@
 <template>
-
-  <div class="navbar_container">
-<div class="logo">HANNAH</div>
-      </div>
-          <ul class="navbar">
-              <li class="navbar_link">
-                  <router-link to="/">Home</router-link>
-              </li>
-              <li class="navbar_link">
-                  <router-link to="/projects">My Projects</router-link>
-              </li>
-              <li class="navbar_link">
-                  <router-link to="/resume">My Resume</router-link>
-              </li>
-
-          </ul>
-
+    <div class="navbar_container">
+        <div class="logo">HANNAH</div>
+        <ul class="navbar">
+            <li class="navbar_link">
+                <router-link to="/" class="navbar_link_text" :class="{'colorChange': isColorChange1, 'colorChangeActive': isActive('/')}"
+                             @mouseover="isColorChange1 = true"
+                             @mouseout="isColorChange1 = false"
+                >
+                    Home
+                </router-link>
+            </li>
+            <li class="navbar_link">
+                <router-link to="/projects" class="navbar_link_text" :class="{'colorChange': isColorChange2, 'colorChangeActive': isActive('/projects')}"
+                             @mouseover="isColorChange2 = true"
+                             @mouseout="isColorChange2 = false"
+                >
+                    My Projects
+                </router-link>
+            </li>
+            <li class="navbar_link">
+                <router-link to="/resume" class="navbar_link_text" :class="{'colorChange': isColorChange3, 'colorChangeActive': isActive('/resume')}"
+                             @mouseover="isColorChange3 = true"
+                             @mouseout="isColorChange3 = false"
+                >
+                    My Resume
+                </router-link>
+            </li>
+        </ul>
+    </div>
 </template>
 
 
-<script setup>
+
+<script>
+import {ref} from "vue";
+import {useRoute} from "vue-router";
+import {computed} from "vue";
+
+export default {
+
+    setup() {
+        const isColorChange1 = ref(false)
+        const isColorChange2 = ref(false)
+        const isColorChange3 = ref(false)
+
+        const route = useRoute();
+
+        const isActive = (path) => computed(() => route.path === path).value;
+
+        return {
+            isColorChange1,
+            isColorChange2,
+            isColorChange3,
+            isActive,
+
+        }
+
+    }
+
+}
 
 </script>
 
@@ -44,7 +83,7 @@
     gap: 300px;
 }
 
-.navbar_link a {
+.navbar_link_text {
     color: #E2C8C8;
     font-family: 'Akatab', sans-serif;
     font-size: 20px;
@@ -54,12 +93,14 @@
     text-decoration: none;
 }
 
-.router-link-active {
+
+.colorChange {
     color: #EA70DE;
 }
 
-
-
+.colorChangeActive {
+    color: #EA70DE;
+}
 
 /* RESPONSIVE DESIGNS*/
 

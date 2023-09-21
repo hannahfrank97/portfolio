@@ -1,7 +1,7 @@
 <template>
     <navbar />
     <h1 class="headline">
-        <span class="highlight-text">W</span> <span class="regular-text">elcome to my Portfolio page!</span><br><br>
+        <span class="regular-text">Welcome to my Portfolio page!</span><br><br>
         <span class="regular-text">My name is </span><span class="highlight-text">Hannah Frank</span><br><br><span class="regular-text">and I am
         a Creative Computing Student.</span>
     </h1>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Navbar from "../components/navbar.vue";
+import Navbar from "@/components/navbar.vue";
 
 export default {
     components: {Navbar}
