@@ -1,140 +1,80 @@
 <template>
     <navbar />
-    <div class="line"></div>
-    <div class="content_box">
-        <div class="left_side">
-            <div class="left-content">
-                <roundball class="roundball" />
-                <h1 class="project_name">FLOURISH <br> AND BLOTTS</h1>
-            </div>
-            <h2 class="project_semester">Second semester - BSc Creative Computing</h2>
-        </div>
-        <div class="right_side">
-            <div class="right-content">
-            <p class="project_text">A magical online bookshop.</p>
-                <div class="project_info">
-                    <router-link to="#" class="project_Link">View Project</router-link>
-                    <arrow class="arrow" />
-                </div>
-            </div>
-        </div>
-        <div class="middle_side">
-            <img class="mockup" src="@/assets/images/mockup.png" alt="project mockup"/>
-        </div>
-    </div>
+    <linehorizontal />
+    <Transition name="fade">
+        <Project class="project1" :project="project1" />
+    </transition>
+    <linehorizontal />
+        <Project class="project2" :project="project2" />
+    <linehorizontal />
+    <Project class="project3" :project="project3" />
+
 
 </template>
-
 <script>
+import Project from "@/components/project.vue";
+import mockup from "@/assets/images/mockup.png";
 import Navbar from "@/components/navbar.vue";
-import Arrow from "@/components/arrow.vue";
-import Roundball from "@/components/roundball.vue";
+import linehorizontal from "@/components/linehorizontal.vue";
+
 
 export default {
     components: {
-        Roundball,
+        linehorizontal,
         Navbar,
-        Arrow,
+        Project,
     },
-};
+
+    data () {
+        return {
+            project1: {
+                name: "FLOURISH AND BLOTTS",
+                semester: "Second semester - BSc Creative Computing",
+                text: "A magical online bookshop.",
+                link: "#",
+                code: "#",
+                image: mockup,
+
+
+            },
+
+            project2: {
+                name: "ORLANDO´S ADVENTURE",
+                semester: "First semester - BSc Creative Computing",
+                text: "Glasses Hunt: 2D Jump-and-Run Game.",
+                link: "#",
+                code: "#",
+                image: mockup,
+            },
+
+            project3: {
+                name: "TIRED HANNAH MEMORY",
+                semester: "Second semester - BSc Creative Computing",
+                text: "Pair the tired Hannah together.",
+                link: "#",
+                code: "#",
+                image: mockup,
+            }
+        }
+    }
+}
+
+
 </script>
 
 <style>
-.line {
-    border-bottom: 1px solid #E7BDE2;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 60px;
+.project1,
+.project2 {
+    margin-bottom: -100px;
 }
 
-.content_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 40px;
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
 }
 
-.left_side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.right_side {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-right: 10%;
-}
-
-.middle_side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -20px !important;
-}
-
-.left-content {
-    display: flex;
-    align-items: center;
-}
-
-.right-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 0;
-}
-
-.project_info {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.roundball {
-    margin-right: 20px;
-}
-
-.project_name {
-    font-family: 'Narnoor', sans-serif;
-    color: whitesmoke;
-    font-weight: lighter;
-    font-size: 28px;
-
-}
-
-.project_semester {
-    font-family: 'Narnoor', sans-serif;
-    font-weight: lighter;
-    color: whitesmoke;
-    margin-left: 30%;
-    font-size: 18px;
-    white-space: nowrap;
-    margin-top: 0;
-}
-
-.project_text {
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: lighter;
-    color: #EA70DE;
-    font-size: 28px;
-}
-
-.project_Link {
-    font-family: 'Nunito Sans', sans-serif;
-    color: #EA70DE;
-    font-weight: bolder;
-    text-decoration: none;
-    font-size: 24px;
-}
-
-.arrow {
-    margin-left: 20px;
-}
-
-.mockup {
-    width: 150%;
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>

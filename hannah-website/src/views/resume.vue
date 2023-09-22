@@ -1,6 +1,7 @@
 <template>
     <navbar />
-    <div class="line"></div>
+    <linehorizontal />
+    <buttoncolorful  :pdf-url="pdfUrl" :pdf-name="'Frank-Resume'"/>
     <div>
         <div class="pdf-container">
             <VuePDF :pdf="pdf" :page="1" class="pdf-page" v-bind:class="{ 'shrink': isShrunk }"
@@ -8,7 +9,7 @@
                     v-on:mouseout="isShrunk = false"/>
             <VuePDF :pdf="pdf" :page="2" class="pdf-page" v-bind:class="{ 'shrink2': isShrunk2 }"
                     v-on:mouseover="isShrunk2 = true"
-                    v-on:mouseout="isShrunk2 = false"/>/>
+                    v-on:mouseout="isShrunk2 = false"/>
         </div>
     </div>
 
@@ -17,14 +18,26 @@
 
 <script>
 import Navbar from "@/components/navbar.vue";
+import buttoncolorful from "@/components/buttoncolorful.vue";
+import linehorizontal from "@/components/linehorizontal.vue";
 import { VuePDF, usePDF } from '@tato30/vue-pdf';
 import pdfPath from '@/assets/cv/Frank-Resume.pdf';
 import {ref} from "vue";
 
+
 export default {
     components: {
+        linehorizontal,
+        buttoncolorful,
         Navbar,
-        VuePDF
+        VuePDF,
+    },
+
+    data() {
+        return {
+            pdfUrl: pdfPath,
+            pdfName: 'Frank-Resume.pdf',
+        }
     },
 
     props: {
@@ -57,18 +70,12 @@ export default {
 
 <style>
 
-.line {
-    border-bottom: 1px solid #E7BDE2;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 60px;
-}
-
 .pdf-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 110vh;
+    margin-top: 50px;
 }
 
 .pdf-page {
@@ -95,12 +102,14 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        overflow: hidden;
     }
 
     .pdf-page {
         width: 100%;
-        height: auto;
         margin-top: 20px;
+        max-width: 100%;
+        height: auto;
     }
 
 }

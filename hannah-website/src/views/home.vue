@@ -5,16 +5,20 @@
         <span class="regular-text">My name is </span><span class="highlight-text">Hannah Frank</span><br><br><span class="regular-text">and I am
         a Creative Computing Student.</span>
     </h1>
-  <div class="line"></div>
+    <linehorizontal />
 </template>
 
 <script>
 import Navbar from "@/components/navbar.vue";
+import linehorizontal from "@/components/linehorizontal.vue";
 
 export default {
-    components: {Navbar}
-}
+    components: {
+        Navbar,
+        linehorizontal,
+    },
 
+}
 
 </script>
 
@@ -44,13 +48,6 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}
-
-.line {
-    border-bottom: 1px solid #E7BDE2;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 60px;
 }
 
 /* RESPONSIVE DESIGNS*/
