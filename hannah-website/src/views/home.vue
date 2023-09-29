@@ -6,14 +6,17 @@
         a Creative Computing Student.</span>
     </h1>
     <linehorizontal />
+    <Bookshelf />
 </template>
 
 <script>
 import Navbar from "@/components/navbar.vue";
 import linehorizontal from "@/components/linehorizontal.vue";
+import Bookshelf from "@/components/bookshelf.vue";
 
 export default {
     components: {
+        Bookshelf,
         Navbar,
         linehorizontal,
     },
