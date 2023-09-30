@@ -13,9 +13,11 @@
 import Navbar from "@/components/navbar.vue";
 import linehorizontal from "@/components/linehorizontal.vue";
 import Bookshelf from "@/components/bookshelf.vue";
+import Roundball from "@/components/roundball.vue";
 
 export default {
     components: {
+        Roundball,
         Bookshelf,
         Navbar,
         linehorizontal,
@@ -26,6 +28,7 @@ export default {
 </script>
 
 <style>
+
 
 
 .headline {

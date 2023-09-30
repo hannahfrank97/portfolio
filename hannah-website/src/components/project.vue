@@ -48,12 +48,6 @@ export default {
 </script>
 
 <style>
-.line {
-    border-bottom: 1px solid #E7BDE2;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 60px;
-}
 
 .content_box {
     display: flex;
@@ -108,6 +102,7 @@ export default {
 
 .roundball {
     margin-right: 20px;
+    margin-top: 10px;
 }
 
 .project_name {
