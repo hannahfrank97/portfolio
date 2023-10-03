@@ -6,12 +6,12 @@
             <h1 class="skills_headline">MY SKILLS</h1>
         </div>
         <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
-        <p id="skill1" :style="{display:showSkill1 ? 'block' : 'none'}">skill.name</p>
+        <p id="skill" :style="{display:showSkill ? 'block' : 'none'}">{{bookTextToShow}}</p>
         <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
-        <img class="book book_blue" :src="BlueBookImage" v-on:click="showText" alt="Blue Book">
-        <img class="book book_neon" :src="NeonBookImage" v-on:click="showText" alt="Neon Book">
-        <img class="book book_pink" :src="PinkBookImage" v-on:click="showText" alt="Pink Book">
-        <img class="book book_orange" :src="OrangeBookImage" v-on:click="showText" alt="Orange Book">
+        <img class="book book_blue" :src="BlueBookImage" v-on:click="showText('blue')" alt="Blue Book">
+        <img class="book book_neon" :src="NeonBookImage" v-on:click="showText('neon')" alt="Neon Book">
+        <img class="book book_pink" :src="PinkBookImage" v-on:click="showText('pink')" alt="Pink Book">
+        <img class="book book_orange" :src="OrangeBookImage" v-on:click="showText('orange')" alt="Orange Book">
         <h3 class="color">Color</h3>
     </div>
 </template>
@@ -36,14 +36,34 @@ export default {
             NeonBookImage: NeonBookImage,
             PinkBookImage: PinkBookImage,
             OrangeBookImage: OrangeBookImage,
-            showSkill1: false,
+            showSkill: true,
+            bookTextToShow: "",
+            bookText: {
+                blue: "Programming Languages: JavaScript\n" +
+                    "HTML\n" +
+                    "CSS\n" +
+                    "SQL\n" +
+                    "C#\n" +
+                    "Python\n" +
+                    "Kotlin",
+                neon: "My vibrant personality.",
+                pink: "Design and Creativity: Figma\n" +
+                    "Adobe Creative Cloud\n" +
+                    "Design Conception",
+                orange: "Web Development:Node.js\n" +
+                    "Vue\n" +
+                    "React\n" +
+                    "Rest API\n" +
+                    "Git",
+
+            }
         }
     },
 
     methods: {
-        showText() {
-            console.log("showText called");
-            this.showSkill1 = !this.showSkill1;
+        showText(bookColor) {
+            this.bookTextToShow = this.bookText[bookColor];
+            this.showSkill = true;
         }
     }
 
@@ -60,11 +80,11 @@ export default {
 
 }
 
-#skill1 {
+#skill {
     font-family: 'Narnoor', sans-serif;
     color: whitesmoke;
     font-weight: lighter;
-    font-size: 28px;
+    font-size: 80px;
     margin-left: 30px;
 }
 
