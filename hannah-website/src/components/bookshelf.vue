@@ -6,14 +6,14 @@
     <div class="shelf_container">
     <div class="bookshelf_container">
         <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
-        <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf"><img
+        <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
+        <img
         class="book book_blue"
         :src="playAnimation('blue') ? bookAnimations.blue : BlueBookImage"
         alt="Blue Book"
         @click="playGif('blue');
         showText('blue');
         disappearBook('blue')"
-
     />
         <img
             class="book book_neon"
@@ -94,7 +94,7 @@ export default {
                     "HTML\n" +
                     "CSS\n" +
                     "SQL\n" +
-                    "C#\n" +
+                    "C/C#\n" +
                     "Python\n" +
                     "Kotlin</span>",
 
@@ -114,30 +114,24 @@ export default {
 
             }
         }
+
     },
 
-    methods: {
+        methods: {
         showText(bookColor) {
             console.log("showText called with bookColor:", bookColor);
             this.bookTextToShow = this.bookText[bookColor];
             this.showSkill = true;
             this.showingBookText = true;
 
-
         },
-
-        hideText() {
-            this.showingBookText = false;
-
-        },
-
 
         disappearBook(bookColor) {
             console.log("disappearBook called with bookColor:", bookColor);
             if (bookColor === "blue") {
                 this.showBook.blue = false;
             } else if (bookColor === "neon") {
-                this.showBook.neon = false;
+                this.showBook.pink = false;
             } else if (bookColor === "pink") {
                 this.showBook.neon = false;
             } else if (bookColor === "orange") {
@@ -145,20 +139,41 @@ export default {
             }
         },
 
-        playAnimation(bookColor) {
-            return this.playingAnimation !== null && this.playingAnimation.includes(bookColor);
-        },
+            playAnimation(bookColor) {
+                const animationElement = document.querySelector(`.book_${bookColor}`);
+                if (!animationElement) {
+                    return false; // Exit if the animation element is not found
+                }
+
+                if (this.playingAnimation !== null && this.playingAnimation.includes(bookColor)) {
+                    animationElement.style.width = "150px";
+                    animationElement.style.height = "100px";
+                } else {
+                    animationElement.style.width = "70px";
+                    animationElement.style.height = "110px";
+                }
+
+                return this.playingAnimation !== null && this.playingAnimation.includes(bookColor);
+            },
+
+
 
 
         playGif(bookColor) {
             console.log("playGif called with bookColor:", bookColor);
+
             if (!this.playingAnimation) {
                 this.playingAnimation = this.bookAnimations[bookColor];
                 setTimeout(() => {
                     this.playingAnimation = null;
-                }, 3000);
+                }, 2000);
             }
         },
+
+            hideText() {
+                this.showingBookText = false;
+
+            },
 
     },
 
