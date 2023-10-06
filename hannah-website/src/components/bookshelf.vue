@@ -4,37 +4,45 @@
         <h1 class="skills_headline">MY SKILLS</h1>
     </div>
     <div class="shelf_container">
-    </div>
     <div class="bookshelf_container">
         <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
         <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf"><img
         class="book book_blue"
         :src="playAnimation('blue') ? bookAnimations.blue : BlueBookImage"
         alt="Blue Book"
-        @click="playGif('blue'); showText('blue')"
+        @click="playGif('blue');
+        showText('blue');
+        disappearBook('blue')"
 
     />
         <img
             class="book book_neon"
             :src="playAnimation('neon') ? bookAnimations.neon : NeonBookImage"
             alt="Neon Book"
-            @click="playGif('neon'); showText('neon')"
+            @click="playGif('neon');
+            showText('neon');
+            disappearBook('neon')"
         />
         <img
             class="book book_pink"
             :src="playAnimation('pink') ? bookAnimations.pink : PinkBookImage"
-            @click="playGif('pink'); showText('pink', $event)"
+            @click="playGif('pink');
+            showText('pink');
+            disappearBook('pink')"
             alt="Pink Book"
         />
         <img
             class="book book_orange"
             :src="playAnimation('orange') ? bookAnimations.orange : OrangeBookImage"
-            @click="playGif('orange'); showText('orange', $event)"
+            @click="playGif('orange');
+            showText('orange');
+            disappearBook('orange')"
             alt="Orange Book"
         />
     </div>
     <div class="text_container">
         <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
+    </div>
     </div>
     <h3 class="color">Color</h3>
 </template>
@@ -64,6 +72,12 @@ export default {
             NeonBookImage: NeonBookImage,
             PinkBookImage: PinkBookImage,
             OrangeBookImage: OrangeBookImage,
+            showBook: {
+                blue: true,
+                neon: true,
+                pink: true,
+                orange: true,
+            },
             showSkill: false,
             bookAnimations: {
                 blue: BlueBookAnimation,
@@ -106,7 +120,8 @@ export default {
         showText(bookColor) {
             console.log("showText called with bookColor:", bookColor);
             this.bookTextToShow = this.bookText[bookColor];
-            this.bookTextToShow = true;
+            this.showSkill = true;
+            this.showingBookText = true;
 
 
         },
@@ -116,22 +131,34 @@ export default {
 
         },
 
-        playAnimation(bookColor) {
-            return this.playingAnimation === bookColor;
+
+        disappearBook(bookColor) {
+            console.log("disappearBook called with bookColor:", bookColor);
+            if (bookColor === "blue") {
+                this.showBook.blue = false;
+            } else if (bookColor === "neon") {
+                this.showBook.neon = false;
+            } else if (bookColor === "pink") {
+                this.showBook.neon = false;
+            } else if (bookColor === "orange") {
+                this.showBook.orange = false;
+            }
         },
+
+        playAnimation(bookColor) {
+            return this.playingAnimation !== null && this.playingAnimation.includes(bookColor);
+        },
+
 
         playGif(bookColor) {
             console.log("playGif called with bookColor:", bookColor);
             if (!this.playingAnimation) {
-                this.playingAnimation`<img src="${this.bookAnimations[bookColor]}" alt="${bookColor} Animation" />`;
-                //this.playingAnimation = this.bookAnimations[bookColor];
-
+                this.playingAnimation = this.bookAnimations[bookColor];
                 setTimeout(() => {
                     this.playingAnimation = null;
                 }, 3000);
             }
         },
-
 
     },
 
@@ -156,11 +183,6 @@ export default {
 
 }
 
-.color {
-    margin-top: 300px;
-    color: transparent;
-
-}
 
 #skill {
     font-family: 'Narnoor', sans-serif;
@@ -169,6 +191,13 @@ export default {
     margin-left: 30px;
     white-space: pre-line;
     text-align: center;
+
+.color {
+    margin-top: 300px;
+    color: transparent;
+
+}
+
 }
 
 .ball_headline {
