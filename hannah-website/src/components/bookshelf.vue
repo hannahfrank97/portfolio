@@ -4,20 +4,39 @@
         <h1 class="skills_headline">MY SKILLS</h1>
     </div>
     <div class="shelf_container">
-        <div class="bookshelf_container">
-        <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
-        <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
-            <img class="book book_blue" :src="showSkill && bookTextToShow === bookText.blue ? bookAnimations.blue :
-            BlueBookImage" alt="Blue Book" @click="playGif('blue')">
-            <img class="book book_neon" :src="NeonBookImage" @click="showText('neon', $event)" alt="Neon Book">
-        <img class="book book_pink" :src="PinkBookImage" v-on:click="showText('pink', $event)" alt="Pink Book">
-        <img class="book book_orange" :src="OrangeBookImage" v-on:click="showText('orange', $event)" alt="Orange Book">
-        </div>
-        <div class="text_container">
-        <p id="skill" :style="{display:showSkill ? 'block' : 'none'}" v-html="bookTextToShow"></p>
-        </div>
-        <h3 class="color">Color</h3>
     </div>
+    <div class="bookshelf_container">
+        <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
+        <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf"><img
+        class="book book_blue"
+        :src="playAnimation('blue') ? bookAnimations.blue : BlueBookImage"
+        alt="Blue Book"
+        @click="playGif('blue'); showText('blue')"
+
+    />
+        <img
+            class="book book_neon"
+            :src="playAnimation('neon') ? bookAnimations.neon : NeonBookImage"
+            alt="Neon Book"
+            @click="playGif('neon'); showText('neon')"
+        />
+        <img
+            class="book book_pink"
+            :src="playAnimation('pink') ? bookAnimations.pink : PinkBookImage"
+            @click="playGif('pink'); showText('pink', $event)"
+            alt="Pink Book"
+        />
+        <img
+            class="book book_orange"
+            :src="playAnimation('orange') ? bookAnimations.orange : OrangeBookImage"
+            @click="playGif('orange'); showText('orange', $event)"
+            alt="Orange Book"
+        />
+    </div>
+    <div class="text_container">
+        <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
+    </div>
+    <h3 class="color">Color</h3>
 </template>
 
 <script>
@@ -52,6 +71,8 @@ export default {
                 pink: PinkBookAnimation,
                 orange: OrangeBookAnimation,
             },
+            playingAnimation: null,
+            showingBookText: false,
             bookTextToShow: "",
             bookText: {
                 blue: "<span style='font-size: 26px; color: #007ca5;'>Programming Languages:</span>\n" +
@@ -77,44 +98,50 @@ export default {
                     "Rest API\n" +
                     "Git</span>",
 
+            }
         }
-    }
     },
 
-
     methods: {
-        showText(bookColor, event) {
-
+        showText(bookColor) {
+            console.log("showText called with bookColor:", bookColor);
             this.bookTextToShow = this.bookText[bookColor];
-            this.showSkill = true;
+            this.bookTextToShow = true;
 
-            event.stopPropagation()
+
         },
 
         hideText() {
-            this.showSkill = false;
+            this.showingBookText = false;
 
         },
 
+        playAnimation(bookColor) {
+            return this.playingAnimation === bookColor;
+        },
+
         playGif(bookColor) {
-            this.bookTextToShow = this.bookAnimations[bookColor];
-            this.showSkill = true;
+            console.log("playGif called with bookColor:", bookColor);
+            if (!this.playingAnimation) {
+                this.playingAnimation`<img src="${this.bookAnimations[bookColor]}" alt="${bookColor} Animation" />`;
+                //this.playingAnimation = this.bookAnimations[bookColor];
 
-            setTimeout(() => {
-                this.showSkill=false;
-                this.bookTextToShow="";
-            }, 3000)
-        }
+                setTimeout(() => {
+                    this.playingAnimation = null;
+                }, 3000);
+            }
+        },
+
+
     },
 
-        mounted() {
-             window.addEventListener('click', this.hideText)
+    mounted() {
+        window.addEventListener('click', this.hideText)
     },
 
-        beforeDestroy() {
-             window.removeEventListener('click', this.hideText)
+    beforeDestroy() {
+        window.removeEventListener('click', this.hideText)
     }
-
 }
 
 </script>
@@ -138,7 +165,7 @@ export default {
 #skill {
     font-family: 'Narnoor', sans-serif;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 26px;
     margin-left: 30px;
     white-space: pre-line;
     text-align: center;
@@ -214,7 +241,8 @@ export default {
 .book_blue {
     top: -495px;
     left: -220px;
-    rotate: 20deg;
+    transform: rotate(20deg);
 }
+
 
 </style>
