@@ -7,6 +7,7 @@
     <div class="bookshelf_container">
         <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
         <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
+        <div class="bookshelf-container">
         <img
         class="book book_blue"
         :src="playAnimation('blue') ? bookAnimations.blue : BlueBookImage"
@@ -14,7 +15,10 @@
         @click="playGif('blue');
         showText('blue');
         disappearBook('blue')"
+        :style="{ width: playAnimation('blue') ? '130px' : '70px', height: playAnimation('blue') ? '120px' : '110px', }"
     />
+        </div>
+        <div class="book_container">
         <img
             class="book book_neon"
             :src="playAnimation('neon') ? bookAnimations.neon : NeonBookImage"
@@ -22,7 +26,10 @@
             @click="playGif('neon');
             showText('neon');
             disappearBook('neon')"
+            :style="{ width: playAnimation('neon') ? '130px' : '70px', height: playAnimation('neon') ? '120px' : '110px' }"
         />
+        </div>
+        <div class="book_container">
         <img
             class="book book_pink"
             :src="playAnimation('pink') ? bookAnimations.pink : PinkBookImage"
@@ -30,7 +37,10 @@
             showText('pink');
             disappearBook('pink')"
             alt="Pink Book"
+            :style="{ width: playAnimation('pink') ? '130px' : '70px', height: playAnimation('pink') ? '120px' : '110px'}"
         />
+        </div>
+        <div class="book_container">
         <img
             class="book book_orange"
             :src="playAnimation('orange') ? bookAnimations.orange : OrangeBookImage"
@@ -38,6 +48,9 @@
             showText('orange');
             disappearBook('orange')"
             alt="Orange Book"
+            :style="{ width: playAnimation('orange') ? '130px': '70px', height: playAnimation('orange') ? '120px' : '110px'}"
+        />
+        </div>
         />
     </div>
     <div class="text_container">
@@ -140,35 +153,21 @@ export default {
         },
 
             playAnimation(bookColor) {
-                const animationElement = document.querySelector(`.book_${bookColor}`);
-                if (!animationElement) {
-                    return false; // Exit if the animation element is not found
-                }
-
-                if (this.playingAnimation !== null && this.playingAnimation.includes(bookColor)) {
-                    animationElement.style.width = "150px";
-                    animationElement.style.height = "100px";
-                } else {
-                    animationElement.style.width = "70px";
-                    animationElement.style.height = "110px";
-                }
-
                 return this.playingAnimation !== null && this.playingAnimation.includes(bookColor);
             },
 
 
 
 
-        playGif(bookColor) {
-            console.log("playGif called with bookColor:", bookColor);
-
-            if (!this.playingAnimation) {
-                this.playingAnimation = this.bookAnimations[bookColor];
-                setTimeout(() => {
-                    this.playingAnimation = null;
-                }, 2000);
-            }
-        },
+            playGif(bookColor) {
+                console.log("playGif called with bookColor:", bookColor);
+                if (!this.playingAnimation) {
+                    this.playingAnimation = this.bookAnimations[bookColor];
+                    setTimeout(() => {
+                        this.playingAnimation = null;
+                    }, 2000);
+                }
+            },
 
             hideText() {
                 this.showingBookText = false;
@@ -207,13 +206,14 @@ export default {
     white-space: pre-line;
     text-align: center;
 
+}
+
 .color {
     margin-top: 300px;
     color: transparent;
 
 }
 
-}
 
 .ball_headline {
     display: flex;
@@ -259,32 +259,37 @@ export default {
     margin-left: 60px;
 }
 
+.text_container {
+    margin-left: 300px;
+}
+
 
 .book {
     width: 70px;
     height: 110px;
-    position: relative;
+    position: absolute;
+
 }
 
 .book_neon {
-    top: -85px;
-    left: -320px;
+    top: 1250px;
+    left: 200px;
 
 }
 
 .book_pink {
-    top: -210px;
-    left: -500px;
+    top: 1370px;
+    left: 300px;
 }
 
 .book_orange {
-    top: -350px;
-    left: -500px;
+    top: 1110px;
+    left: 250px;
 }
 
 .book_blue {
-    top: -495px;
-    left: -220px;
+    top: 965px;
+    left: 300px;
     transform: rotate(20deg);
 }
 
