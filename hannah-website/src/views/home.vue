@@ -58,26 +58,24 @@ export default {
 
 /* RESPONSIVE DESIGNS*/
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 390px ) and (max-width: 576px)  {
     .highlight-text {
-        font-size: 30px;
+        font-size: 28px;
 
     }
 
     .regular-text {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .headline {
         margin-top: 8rem;
     }
 
-    .line {
-        width: 100%;
-    }
+
 }
 
-@media screen and (min-width: 577px) and (max-width: 767px) {
+@media screen and (min-width: 577px) and (max-width: 768px) {
     .highlight-text {
         font-size: 30px;
 

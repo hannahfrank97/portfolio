@@ -104,18 +104,32 @@ export default {
 
 /* RESPONSIVE DESIGNS*/
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 390px) {
     .navbar{
         gap: 80px;
 
     }
+
+    .logo {
+        margin-left: 12%;
+    }
+
+    .navbar_link_text {
+        font-size: 16px;
+    }
 }
 
-@media screen and (min-width: 577px) and (max-width: 767px) {
+@media screen and (min-width: 577px) and (max-width: 768px) {
     .navbar {
-        gap: 90px;
+        gap: 170px;
 
     }
 }
+
+@media screen and (max-width: 360px) {
+    .navbar {
+    }
+}
+
 
 </style>

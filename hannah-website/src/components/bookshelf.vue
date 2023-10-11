@@ -15,7 +15,10 @@
         @click="playGif('blue');
         showText('blue');
         disappearBook('blue')"
-        :style="{ width: playAnimation('blue') ? '130px' : '70px', height: playAnimation('blue') ? '120px' : '110px', }"
+        :style="{
+         width: playAnimation('blue') ? '130px' : '70px', height: playAnimation('blue') ? '120px' : '110px',
+
+            }"
     />
         </div>
         <div class="book_container">
@@ -51,7 +54,6 @@
             :style="{ width: playAnimation('orange') ? '130px': '70px', height: playAnimation('orange') ? '120px' : '110px'}"
         />
         </div>
-        />
     </div>
     <div class="text_container">
         <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
@@ -102,7 +104,7 @@ export default {
             showingBookText: false,
             bookTextToShow: "",
             bookText: {
-                blue: "<span style='font-size: 26px; color: #007ca5;'>Programming Languages:</span>\n" +
+                blue: "<span class='skill_span' style='color: #007ca5;'>Programming Languages:</span>\n" +
                     "<span style='color: #007ca5;'>JavaScript\n" +
                     "HTML\n" +
                     "CSS\n" +
@@ -111,14 +113,14 @@ export default {
                     "Python\n" +
                     "Kotlin</span>",
 
-                neon: "<span style='font-size: 26px; color: #F505EF;'>My vibrant personality.</span>",
+                neon: "<span class='skill_span' style='color: #F505EF;'>My vibrant personality.</span>",
 
-                pink: "<span style='font-size: 26px; color: #E01073;'>Design and Creativity:</span>\n" +
+                pink: "<span class='skill_span' style='color: #E01073;'>Design and Creativity:</span>\n" +
                     "<span style='color: #E01073;'>Figma\n" +
                     "Adobe Creative Cloud\n" +
                     "Design Conception</span>",
 
-                orange: "<span style='font-size: 26px; color: #CE3800;'>Web Development:</span>\n" +
+                orange: "<span class='skill_span' style='color: #CE3800;'>Web Development:</span>\n" +
                     "<span style='color: #CE3800;'>Node.js\n" +
                     "Vue\n" +
                     "React\n" +
@@ -194,6 +196,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 0;
 
 }
 
@@ -206,6 +209,10 @@ export default {
     white-space: pre-line;
     text-align: center;
 
+}
+
+.skill_span {
+    font-size: 26px;
 }
 
 .color {
@@ -247,9 +254,6 @@ export default {
 }
 
 
-.shelf_container {
-    margin-top: 0;
-}
 
 .bookshelf {
     margin-top: 150px;
@@ -265,8 +269,6 @@ export default {
 
 
 .book {
-    width: 70px;
-    height: 110px;
     position: absolute;
 
 }
@@ -285,6 +287,9 @@ export default {
 .book_orange {
     top: 1110px;
     left: 250px;
+    width: 700px;
+    height: 110px;
+
 }
 
 .book_blue {
@@ -293,5 +298,157 @@ export default {
     transform: rotate(20deg);
 }
 
+/* RESPONSIVE DESIGNS*/
+
+@media screen and (max-width: 390px) {
+
+    .shelf_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+
+    }
+
+    .bookshelf {
+        max-width:80%;
+        height: auto;
+        margin-left: 10%;
+
+    }
+
+    .skills_headline {
+        font-size: 24px;
+        margin-left: 5%;
+    }
+
+    .ball_headline {
+        margin-left: 0;
+    }
+
+    .roundball {
+        margin-left: 25px;
+        margin-top: 40px!important;
+    }
+
+
+    .skills_h2 {
+        font-size: 18px!important;
+        margin-left: 20%;
+    }
+
+    #skill {
+        font-weight: bold;
+        font-size: 18px!important;
+        margin-left: 0;
+
+    }
+
+    .skill_span {
+        font-size: 20px!important;
+    }
+
+    .text_container {
+        margin-left: 0;
+    }
+
+    .book {
+        width: 55px !important;
+        height: 85px !important;
+    }
+
+    .book_blue {
+        top: 840px!important;
+        left: 200px!important;
+        transform: rotate(20deg);
+    }
+
+    .book_neon {
+        top: 1040px!important;
+        left: 130px!important;
+    }
+
+    .book_pink {
+        top: 1120px!important;
+        left: 200px!important;
+    }
+
+    .book_orange {
+        top: 940px!important;
+        left: 140px!important;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .shelf_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+
+    }
+
+    .bookshelf {
+        max-width:80%;
+        height: auto;
+
+    }
+
+    .roundball {
+        margin-top: 6%;
+    }
+
+    .ball_headline {
+        margin-left: 12%;
+    }
+    .skills_headline {
+        font-size: 32px;
+        margin-top: 25px;
+
+    }
+
+    .skills_h2 {
+        font-size: 20px;
+        margin-left: 20%;
+    }
+
+    #skill {
+        font-weight: bold;
+        font-size: 28px;
+        margin-left: 0;
+
+    }
+
+    .skill_span {
+        font-size: 30px;
+    }
+
+    .text_container {
+        margin-left: 0;
+    }
+
+    .book_blue {
+        top: 840px;
+        left: 400px;
+        transform: rotate(20deg);
+    }
+
+    .book_neon {
+        top: 1110px;
+        left: 310px;
+    }
+
+    .book_pink {
+        top: 1230px;
+        left: 370px;
+    }
+
+    .book_orange {
+        top: 980px;
+        left: 320px;
+    }
+
+}
 
 </style>

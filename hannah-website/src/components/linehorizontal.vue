@@ -14,9 +14,9 @@
     margin-top: 60px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 390px) {
     .line {
-        width: 100%;
+        width: 90%;
     }
 }
 </style>

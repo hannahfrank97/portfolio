@@ -80,5 +80,25 @@ export default {
     box-shadow: none;
     transform: translateY(0);
 }
+
+
+@media screen and (min-width: 390px ) and (max-width: 576px) {
+.button {
+        font-size: 14px;
+        margin-left: 30%;
+        min-height: 50px;
+        width: 40%;
+    }
+
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .button {
+        font-size: 14px;
+        margin-left: 40%;
+        min-height: 50px;
+        width: 20%;
+    }
+}
 </style>
 
