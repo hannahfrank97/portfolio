@@ -109,13 +109,14 @@ export default {
                     "HTML\n" +
                     "CSS\n" +
                     "SQL\n" +
-                    "C/C#\n" +
+                    "C#\n" +
+                    "C\n" +
                     "Python\n" +
                     "Kotlin</span>",
 
-                neon: "<span class='skill_span' style='color: #F505EF;'>My vibrant personality.</span>",
+                pink: "<span class='skill_span' style='color: #F505EF;'>My vibrant personality.</span>",
 
-                pink: "<span class='skill_span' style='color: #E01073;'>Design and Creativity:</span>\n" +
+                neon: "<span class='skill_span' style='color: #E01073;'>Design and Creativity:</span>\n" +
                     "<span style='color: #E01073;'>Figma\n" +
                     "Adobe Creative Cloud\n" +
                     "Design Conception</span>",
@@ -167,7 +168,7 @@ export default {
                     this.playingAnimation = this.bookAnimations[bookColor];
                     setTimeout(() => {
                         this.playingAnimation = null;
-                    }, 2000);
+                    }, 1400);
                 }
             },
 
