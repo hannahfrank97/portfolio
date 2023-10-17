@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="middle_side">
-            <img class="mockup" :src="project.image" alt="project mockup"/>
+            <img :src="project.image" class="mockup1_image1" alt="project image one"/>
         </div>
     </div>
 
@@ -72,8 +72,8 @@ export default {
 
 .middle_side {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
     margin-top: -20px !important;
 }
 
@@ -148,7 +148,16 @@ export default {
     margin-top: -10px;
 }
 
-.mockup {
-    width: 150%;
+.mockup1_image1 {
+    width:  80%;
+    height: auto;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    align-items: center;
+    border-radius: 6px;
+
 }
+
+
 </style>
