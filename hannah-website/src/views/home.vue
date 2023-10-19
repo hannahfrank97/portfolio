@@ -1,9 +1,9 @@
 <template>
     <navbar />
     <h1 class="headline">
-        <span class="regular-text">Welcome to my Portfolio page!</span><br><br>
-        <span class="regular-text">My name is </span><span class="highlight-text">Hannah Frank</span><br><br><span class="regular-text">and I am
-        a Creative Computing Student.</span>
+        <span class="regular-text">{{$t('welcome')}}</span><br><br>
+        <span class="regular-text">{{$t('myNameIs')}} </span><span class="highlight-text">Hannah Frank</span><br><br>
+        <span class="regular-text">{{$t('student')}} </span>
     </h1>
     <linehorizontal />
     <Bookshelf />

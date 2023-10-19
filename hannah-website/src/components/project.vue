@@ -3,15 +3,15 @@
         <div class="left_side">
             <div class="left-content">
                 <roundball class="roundball" />
-                <h1 class="project_name">{{project.name}}</h1>
+                <h1 class="project_name">{{ $t(project.nameKey) }}</h1>
             </div>
-            <h2 class="project_semester">{{project.semester}}</h2>
+            <h2 class="project_semester">{{ $t(project.semesterKey) }}</h2>
         </div>
         <div class="right_side">
             <div class="right-content">1
-                <p class="project_text">{{project.text}}</p>
+                <p class="project_text">{{ $t(project.textKey) }}</p>
                 <div class="project_info">
-                    <router-link :to="project.link" class="project_Link">View Project</router-link>
+                    <router-link :to="project.link" class="project_Link">{{ $t('viewProject') }}</router-link>
                     <arrow class="arrow" />
                 </div>
                 <div class="project_info2"></div>

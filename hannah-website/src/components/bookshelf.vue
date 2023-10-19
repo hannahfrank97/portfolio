@@ -1,11 +1,11 @@
 <template>
     <div class="ball_headline">
         <Roundball class="roundball" />
-        <h1 class="skills_headline">MY SKILLS</h1>
+        <h1 class="skills_headline">{{$t('mySkills')}}</h1>
     </div>
     <div class="shelf_container">
     <div class="bookshelf_container">
-        <h2 class="skills_h2">Click on the colorful books to learn <br>more about my skills</h2>
+        <h2 class="skills_h2" v-html="$t('clickBooksToLearn')"></h2>
         <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
         <div class="bookshelf-container">
         <img
@@ -104,7 +104,9 @@ export default {
             showingBookText: false,
             bookTextToShow: "",
             bookText: {
-                blue: "<span class='skill_span' style='color: #007ca5;'>Programming Languages:</span>\n" +
+                blue: "<span class='skill_span' style='color: #007ca5;'>{{ $t('programmingLanguages') }}</span>\n"
+
+                    +
                     "<span style='color: #007ca5;'>JavaScript\n" +
                     "HTML\n" +
                     "CSS\n" +
@@ -114,9 +116,9 @@ export default {
                     "Python\n" +
                     "Kotlin</span>",
 
-                pink: "<span class='skill_span' style='color: #F505EF;'>My vibrant personality.</span>",
+                pink: "<span class='skill_span' style='color: #F505EF;'>{{$t('My vibrant personality.'}}</span>",
 
-                neon: "<span class='skill_span' style='color: #E01073;'>Design and Creativity:</span>\n" +
+                neon: "<span class='skill_span' style='color: #E01073;'>{{$t('Design and Creativity:'}}</span>\n" +
                     "<span style='color: #E01073;'>Figma\n" +
                     "Adobe Creative Cloud\n" +
                     "Design Conception</span>",

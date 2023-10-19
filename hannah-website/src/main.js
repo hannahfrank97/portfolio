@@ -1,12 +1,23 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from '../routes/router.js';
-import { Transition } from 'vue';
+import { createI18n } from 'vue-i18n';
+import en from './languages/en.json'
+import de from './languages/de.json'
+
+const i18n = createI18n({
+    locale: 'en',
+    messages: {
+        en,
+        de,
+    },
+});
 
 import '@/stylesheets/styles.css';
 
 const app = createApp(App);
 
+app.use(i18n);
 
 app.use(router);
 app.mount('#app');

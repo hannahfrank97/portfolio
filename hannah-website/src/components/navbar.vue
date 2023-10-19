@@ -15,7 +15,7 @@
                              @mouseover="isColorChange2 = true"
                              @mouseout="isColorChange2 = false"
                 >
-                    My Projects
+                    {{ $t('myProjects') }}
                 </router-link>
             </li>
             <li class="navbar_link">
@@ -23,10 +23,13 @@
                              @mouseover="isColorChange3 = true"
                              @mouseout="isColorChange3 = false"
                 >
-                    My Resume
+                    {{ $t('myResume') }}
                 </router-link>
+
             </li>
+
         </ul>
+        <span class="text_language" @click="selectLanguage">{{ otherLanguage }}</span>
     </div>
 </template>
 
@@ -38,6 +41,24 @@ import {useRoute} from "vue-router";
 import {computed} from "vue";
 
 export default {
+    data() {
+        return {
+            currentLanguage:"EN"
+        };
+    },
+
+    computed: {
+        otherLanguage() {
+            return this.currentLanguage === "EN" ? "DE" : "EN"
+        }
+    },
+
+    methods: {
+        selectLanguage() {
+            this.currentLanguage = this.currentLanguage === "EN" ? "DE" : "EN"
+            this.$i18n.locale = this.currentLanguage.toLowerCase();
+        }
+    },
 
     setup() {
         const isColorChange1 = ref(false)
@@ -63,6 +84,15 @@ export default {
 </script>
 
 <style>
+
+.text_language {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    color: #E2C8C8;
+    font-family: 'Akatab', sans-serif;
+    font-size: 20px;
+}
 
 .logo {
     color: #EA70DE;

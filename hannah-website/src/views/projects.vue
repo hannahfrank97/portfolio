@@ -24,25 +24,25 @@ export default {
     data () {
         return {
             project1: {
-                name: "FLOURISH AND BLOTTS",
-                semester: "Second semester - BSc Creative Computing",
-                text: "A magical online bookshop.",
+                nameKey: "project1Name",
+                semesterKey: "project1Semester",
+                textKey: "project1Text",
                 link: "#",
                 code: "#",
                 image: project1_image,
             },
 
             project2: {
-                name: "ORLANDO´S ADVENTURE",
-                semester: "First semester - BSc Creative Computing",
-                text: "Glasses Hunt: 2D Jump-and-Run Game.",
+                nameKey: "project2Name",
+                semesterKey: "project2Semester",
+                textKey: "project2Text",
                 link: "#",
                 code: "#",
                 image: project2_image,
             },
-
         }
     }
+
 }
 
 
