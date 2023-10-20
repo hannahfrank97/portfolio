@@ -1,65 +1,54 @@
 <template>
-    <div class="ball_headline">
-        <Roundball class="roundball" />
-        <h1 class="skills_headline">{{$t('mySkills')}}</h1>
-    </div>
-    <div class="shelf_container">
-    <div class="bookshelf_container">
+    <div class="container">
+        <div class="ball_headline">
+            <Roundball class="roundball" />
+            <h1 class="skills_headline">{{$t('mySkills')}}</h1>
+        </div>
         <h2 class="skills_h2" v-html="$t('clickBooksToLearn')"></h2>
-        <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
-        <div class="bookshelf-container">
-        <img
-        class="book book_blue"
-        :src="playAnimation('blue') ? bookAnimations.blue : BlueBookImage"
-        alt="Blue Book"
-        @click="playGif('blue');
-        showText('blue');
-        disappearBook('blue')"
-        :style="{
-         width: playAnimation('blue') ? '130px' : '70px', height: playAnimation('blue') ? '120px' : '110px',
 
-            }"
-    />
-        </div>
-        <div class="book_container">
-        <img
-            class="book book_neon"
-            :src="playAnimation('neon') ? bookAnimations.neon : NeonBookImage"
-            alt="Neon Book"
-            @click="playGif('neon');
-            showText('neon');
-            disappearBook('neon')"
-            :style="{ width: playAnimation('neon') ? '130px' : '70px', height: playAnimation('neon') ? '120px' : '110px' }"
-        />
-        </div>
-        <div class="book_container">
-        <img
-            class="book book_pink"
-            :src="playAnimation('pink') ? bookAnimations.pink : PinkBookImage"
-            @click="playGif('pink');
-            showText('pink');
-            disappearBook('pink')"
-            alt="Pink Book"
-            :style="{ width: playAnimation('pink') ? '130px' : '70px', height: playAnimation('pink') ? '120px' : '110px'}"
-        />
-        </div>
-        <div class="book_container">
-        <img
-            class="book book_orange"
-            :src="playAnimation('orange') ? bookAnimations.orange : OrangeBookImage"
-            @click="playGif('orange');
-            showText('orange');
-            disappearBook('orange')"
-            alt="Orange Book"
-            :style="{ width: playAnimation('orange') ? '130px': '70px', height: playAnimation('orange') ? '120px' : '110px'}"
-        />
+        <div class="shelf_container">
+            <div class="bookshelf_container">
+                <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
+                <img
+                    class="book book_blue"
+                    :class="isBlueBookActive ? 'animate' : ''"
+                    :src="BlueBookImage"
+                    alt="Blue Book"
+                    @click="setBlueBookActive();
+                    showText('blue');"
+                />
+                <img
+                    class="book book_neon"
+                    :src="playAnimation('neon') ? bookAnimations.neon : NeonBookImage"
+                    alt="Neon Book"
+                    @click="playGif('neon');
+                    showText('neon');
+
+                />
+
+                <img
+                    class="book book_pink"
+                    :src="playAnimation('pink') ? bookAnimations.pink : PinkBookImage"
+                    @click="playGif('pink');
+                    showText('pink');
+                    disappearBook('pink')"
+                    alt="Pink Book"
+                />
+
+                <img
+                    class="book book_orange"
+                    :src="playAnimation('orange') ? bookAnimations.orange : OrangeBookImage"
+                    @click="playGif('orange');
+                    showText('orange');
+                    disappearBook('orange')"
+                    alt="Orange Book"
+                />
+            </div>
+            <div class="text_container">
+                <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
+            </div>
         </div>
     </div>
-    <div class="text_container">
-        <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
-    </div>
-    </div>
-    <h3 class="color">Color</h3>
 </template>
 
 <script>
@@ -74,6 +63,7 @@ import OrangeBookImage from "@/assets/images/Book-orange.png";
 import OrangeBookAnimation from "@/assets/animations/Book-orange-animation.gif";
 
 import Roundball from "@/components/roundball.vue";
+import { getTransitionRawChildren } from "vue";
 
 export default {
     name: "Bookshelf",
@@ -87,6 +77,10 @@ export default {
             NeonBookImage: NeonBookImage,
             PinkBookImage: PinkBookImage,
             OrangeBookImage: OrangeBookImage,
+            isBlueBookActive: false,
+            isPinkBookActive: false,
+            isNeonBookActive: false,
+            isOrangeBookActive: false,
             showBook: {
                 blue: true,
                 neon: true,
@@ -141,6 +135,13 @@ export default {
             this.bookTextToShow = this.bookText[bookColor];
             this.showSkill = true;
             this.showingBookText = true;
+
+        },
+
+        setBlueBookActive() {
+            this.isBlueBookActive = !this.isBlueBookActive;
+            this.isPinkBookActive = false;
+            this.isOrangeBookActive = false;
 
         },
 
@@ -203,6 +204,21 @@ export default {
 
 }
 
+.bookshelf_container {
+    position: relative;
+    margin-top: 4rem;
+    width: 100%; 
+}
+
+@media screen and (min-width: 768px) {
+    .bookshelf_container {
+        width: 40%;
+    }
+}
+
+.bookshelf {
+    width: 100%;
+}
 
 #skill {
     font-family: 'Narnoor', sans-serif;
@@ -217,13 +233,6 @@ export default {
 .skill_span {
     font-size: 26px;
 }
-
-.color {
-    margin-top: 300px;
-    color: transparent;
-
-}
-
 
 .ball_headline {
     display: flex;
@@ -253,17 +262,6 @@ export default {
     font-weight: lighter;
     font-size: 20px;
     margin-left: 80px;
-    margin-bottom: -100px;
-}
-
-
-
-.bookshelf {
-    margin-top: 150px;
-    left: 0;
-    width: 450px;
-    height: 700px;
-    margin-left: 60px;
 }
 
 .text_container {
@@ -273,7 +271,6 @@ export default {
 
 .book {
     position: absolute;
-
 }
 
 .book_neon {
@@ -295,163 +292,31 @@ export default {
 
 }
 
+/* Je nachdem ob du andere rotationen von den büchern hast, brauchst du eine eigene animations abfolge  */
+/* Idee: zwei animationen 1. raus fahren; 2. shake mit delay */
+@keyframes shake-book {
+    0% {transform: translateX(0) rotate(20deg);}
+    50% {transform: translateX(50%) rotate(20deg);}
+    60% {transform: translateX(50%) rotate(30deg);}
+    70% {transform: translateX(50%) rotate(40deg);}
+    100% {transform: translateX(50%) rotate(20deg);}
+}
+
 .book_blue {
-    top: 965px;
-    left: 300px;
-    transform: rotate(20deg);
+    width: 15%;
+    height: auto;
+    top: 13%;
+    left: 55.5%;
+    transform: rotate(20deg) translateX(0);
+    /* transition: transform 1s; */
 }
 
-/* RESPONSIVE DESIGNS*/
-
-@media screen and (max-width: 390px) {
-
-    .shelf_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 0;
-
-    }
-
-    .bookshelf {
-        max-width:80%;
-        height: auto;
-        margin-left: 10%;
-
-    }
-
-    .skills_headline {
-        font-size: 24px;
-        margin-left: 5%;
-    }
-
-    .ball_headline {
-        margin-left: 0;
-    }
-
-    .roundball {
-        margin-left: 25px;
-        margin-top: 40px!important;
-    }
-
-
-    .skills_h2 {
-        font-size: 18px!important;
-        margin-left: 20%;
-    }
-
-    #skill {
-        font-weight: bold;
-        font-size: 18px!important;
-        margin-left: 0;
-
-    }
-
-    .skill_span {
-        font-size: 20px!important;
-    }
-
-    .text_container {
-        margin-left: 0;
-    }
-
-    .book {
-        width: 55px !important;
-        height: 85px !important;
-    }
-
-    .book_blue {
-        top: 840px!important;
-        left: 200px!important;
-        transform: rotate(20deg);
-    }
-
-    .book_neon {
-        top: 1040px!important;
-        left: 130px!important;
-    }
-
-    .book_pink {
-        top: 1120px!important;
-        left: 200px!important;
-    }
-
-    .book_orange {
-        top: 940px!important;
-        left: 140px!important;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    .shelf_container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 0;
-
-    }
-
-    .bookshelf {
-        max-width:80%;
-        height: auto;
-
-    }
-
-    .roundball {
-        margin-top: 6%;
-    }
-
-    .ball_headline {
-        margin-left: 12%;
-    }
-    .skills_headline {
-        font-size: 32px;
-        margin-top: 25px;
-
-    }
-
-    .skills_h2 {
-        font-size: 20px;
-        margin-left: 20%;
-    }
-
-    #skill {
-        font-weight: bold;
-        font-size: 28px;
-        margin-left: 0;
-
-    }
-
-    .skill_span {
-        font-size: 30px;
-    }
-
-    .text_container {
-        margin-left: 0;
-    }
-
-    .book_blue {
-        top: 840px;
-        left: 400px;
-        transform: rotate(20deg);
-    }
-
-    .book_neon {
-        top: 1110px;
-        left: 310px;
-    }
-
-    .book_pink {
-        top: 1230px;
-        left: 370px;
-    }
-
-    .book_orange {
-        top: 980px;
-        left: 320px;
-    }
-
+.book.animate {
+    /* transform: translateX(50%) rotate(50deg); */
+    animation-name: shake-book;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 </style>

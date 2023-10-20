@@ -1,40 +1,40 @@
 <template>
-    <button class="button" role="button" @click="downloadFile">Download</button>
-
+    <div class="button_container">
+    <button class="button" @click="downloadFile">Download</button>
+    </div>
 </template>
 
 <script>
+import pdfDokument from "../assets/cv/Frank-Resume.pdf"
 
 export default {
-    props: {
-        pdfUrl: {
-            type: String,
-            required: true
-        },
-
-        pdfName: {
-            type: String,
-            required: true
-        }
-    },
-
     methods: {
         downloadFile() {
-        const link = document.createElement('a');
-        link.href = this.pdfUrl;
-        link.target = '_blank';
-        link.download = this.pdfName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+            const pdfUrl = pdfDokument;
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.target = '_blank';
+            link.download = 'Frank_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
         }
     }
 }
 
+
 </script>
 
+
+
 <style>
+
+.button_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .button {
     appearance: none;
     background-color: transparent;
@@ -45,24 +45,21 @@ export default {
     cursor: pointer;
     display: inline-block;
     font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 400;
     line-height: normal;
     letter-spacing: 1.8px;
-    margin-left: 45%;
-    margin-top: 30px;
-    min-height: 60px;
+    text-align: center;
     min-width: 0;
     outline: none;
     padding: 16px 24px;
-    text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 10%;
     will-change: transform;
+    margin-top: 5%;
 }
 
 .button:disabled {
@@ -82,23 +79,13 @@ export default {
 }
 
 
-@media screen and (min-width: 390px ) and (max-width: 576px) {
+@media screen and (min-width: 390px ) and (max-width: 768px) {
 .button {
-        font-size: 14px;
-        margin-left: 30%;
-        min-height: 50px;
-        width: 40%;
+    font-size: 1rem;
+
+
     }
 
-}
-
-@media screen and (min-width: 577px) and (max-width: 768px) {
-    .button {
-        font-size: 14px;
-        margin-left: 40%;
-        min-height: 50px;
-        width: 20%;
-    }
 }
 </style>
 

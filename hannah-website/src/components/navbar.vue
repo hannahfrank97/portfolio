@@ -107,10 +107,13 @@ export default {
 
 .navbar {
     list-style-type: none;
-    padding: 0;
     display: flex;
-    justify-content: center;
-    gap: 300px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbar_link_text {
