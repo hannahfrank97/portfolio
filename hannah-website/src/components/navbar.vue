@@ -94,6 +94,11 @@ export default {
     font-size: 20px;
 }
 
+.text_language:hover {
+    cursor: pointer;
+    color: #f3a4e3;
+}
+
 .logo {
     color: #EA70DE;
     font-family: 'Gruppo', sans-serif;
@@ -137,14 +142,13 @@ export default {
 
 /* RESPONSIVE DESIGNS*/
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 330px) {
     .navbar{
-        gap: 80px;
-
+        gap: 3%
     }
 
     .logo {
-        margin-left: 12%;
+        font-size: 3rem;
     }
 
     .navbar_link_text {
@@ -154,8 +158,7 @@ export default {
 
 @media screen and (min-width: 577px) and (max-width: 768px) {
     .navbar {
-        gap: 170px;
-
+        gap: 2%;
     }
 }
 

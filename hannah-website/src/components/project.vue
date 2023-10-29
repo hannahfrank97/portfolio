@@ -8,15 +8,14 @@
             <h2 class="project_semester">{{ $t(project.semesterKey) }}</h2>
         </div>
         <div class="right_side">
-            <div class="right-content">1
+            <div class="right-content">
                 <p class="project_text">{{ $t(project.textKey) }}</p>
                 <div class="project_info">
                     <router-link :to="project.link" class="project_Link">{{ $t('viewProject') }}</router-link>
-                    <arrow class="arrow" />
                 </div>
                 <div class="project_info2"></div>
                 <router-link :to="project.code" class="project_Link2">Source Code</router-link>
-                <arrow class="arrow2" />
+
             </div>
         </div>
         <div class="middle_side">
@@ -45,6 +44,7 @@ export default {
         },
     },
 };
+
 </script>
 
 <style>
@@ -54,7 +54,7 @@ export default {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    padding: 40px;
+    width: 100%;
 }
 
 .left_side {
@@ -73,8 +73,8 @@ export default {
 .middle_side {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    margin-top: -20px !important;
+    justify-content: center;
+    margin: 5% 0;
 }
 
 .left-content {
@@ -117,18 +117,18 @@ export default {
     font-family: 'Narnoor', sans-serif;
     font-weight: lighter;
     color: whitesmoke;
-    margin-left: 30%;
     font-size: 18px;
     white-space: nowrap;
-    margin-top: 0;
+
 }
 
 .project_text {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: lighter;
     color: #EA70DE;
-    font-size: 24px;
-    margin-top: 30px;
+    font-size: 1.3rem;
+    margin-top: 13%;
+    white-space: nowrap;
 }
 
 .project_Link, .project_Link2 {
@@ -136,28 +136,42 @@ export default {
     color: #EA70DE;
     font-weight: bolder;
     text-decoration: none;
-    font-size: 24px;
-}
-
-.arrow {
-    margin-left: 20px;
-}
-
-.arrow2 {
-    margin-left: 160px;
-    margin-top: -10px;
+    font-size: 1rem;
 }
 
 .mockup1_image1 {
     width:  80%;
     height: auto;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    margin-top: 5%;
     align-items: center;
     border-radius: 6px;
 
 }
+
+@media screen and (max-width: 330px) {
+
+    .right-content {
+        margin-left: 5%;
+    }
+
+    .project_semester {
+        font-size: 1rem;
+    }
+
+    .project_name {
+        font-size: 1.5rem;
+    }
+
+    .project_text {
+        font-size: 1rem;
+    }
+
+    .mockup1_image1 {
+        width:  100%;
+        height: auto;
+    }
+
+}
+
 
 
 </style>

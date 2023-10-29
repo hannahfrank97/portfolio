@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 390px) {
     .line {
-        width: 90%;
+        width: 100%;
     }
 }
 </style>

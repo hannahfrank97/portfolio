@@ -1,4 +1,5 @@
 <template>
+    <div class="container">
     <navbar />
     <h1 class="headline">
         <span class="regular-text">{{$t('welcome')}}</span><br><br>
@@ -7,6 +8,7 @@
     </h1>
     <linehorizontal />
     <Bookshelf />
+    </div>
 </template>
 
 <script>
@@ -58,14 +60,14 @@ export default {
 
 /* RESPONSIVE DESIGNS*/
 
-@media screen and (min-width: 390px ) and (max-width: 576px)  {
+@media screen and (min-width: 330px ) and (max-width: 576px)  {
     .highlight-text {
-        font-size: 28px;
+        font-size: 2.4rem;
 
     }
 
     .regular-text {
-        font-size: 18px;
+        font-size: 1.7rem;
     }
 
     .headline {
@@ -86,7 +88,7 @@ export default {
     }
 
     .headline {
-        margin-top: 8rem;
+        margin-top: 5rem;
     }
 
 

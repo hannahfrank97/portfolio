@@ -43,7 +43,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 3%;
     overflow: auto;
 }
 
@@ -66,9 +66,13 @@ export default {
 
 }
 
-@media (min-width: 770px) {
+@media (min-width: 330px) and (max-width: 576px){
     .pdf-container {
-        flex-direction: row;
+        flex-direction:column;
+    }
+
+    .pdf-page-container {
+        margin: 2% 0;
     }
     
 }

@@ -6,16 +6,16 @@
   "welcome": "Willkommen auf meiner Portfolio-Website!",
   "myNameIs": "Mein Name ist {name}",
   "student": "und ich studiere Creative Computing.",
-  "my vibrant personality.": "Meine schillernde Persönlichkeit.",
-  "design and creativity:": "Design und Kreativität:",
-  "project1Name": "FLOURISH AND BLOTTS",
+  "myVibrantPersonality.": "Meine schillernde Persönlichkeit.",
+  "designAndCreativity:": "Design und Kreativität:",
+  "project1Name": "BLOURISH AND FLOTTS",
   "project1Semester": "Zweites Semester - BSc Creative Computing",
-  "project1Text": "Eine magischer Buchshop",
+  "project1Text": "Ein magischer Buchshop",
   "project2Name": "ORLANDOS ABENTEUER",
   "project2Semester": "Erstes Semester - BSc Creative Computing",
-  "project2Text": "Die Jagd nach den Brillen: 2D Jump-and-Run Spiel",
+  "project2Text": "Brillenjagd: 2D Jump-and-Run Spiel",
   "viewProject": "Projekt ansehen",
-  "programmingLanguages": "Programmiersprachen"
+  "programmingLanguages:": "Programmiersprachen:"
 
 }
 

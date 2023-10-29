@@ -2,8 +2,6 @@
     <div class="container">
         <div class="headline_text_multiple">
          <div class="ball_headline">
-             <div class="round"></div>
-            <Roundball class="roundball" />
             <h1 class="skills_headline">{{$t('mySkills')}}</h1>
          </div>
           <h2 class="skills_h2" v-html="$t('clickBooksToLearn')"></h2>
@@ -85,44 +83,41 @@ export default {
             showingBookText: false,
             bookTextToShow: "",
             bookText: {
-                blue: "<span class='skill_span' style='color: #007ca5;'>{{ $t('programmingLanguages') }}</span>\n"
-
-                    +
-                    "<span style='color: #007ca5;'>JavaScript\n" +
-                    "HTML\n" +
-                    "CSS\n" +
-                    "SQL\n" +
-                    "C#\n" +
-                    "C\n" +
-                    "Python\n" +
-                    "Kotlin</span>",
-
-                pink: "<span class='skill_span' style='color: #F505EF;'>{{$t('My vibrant personality.'}}</span>",
-
-                neon: "<span class='skill_span' style='color: #E01073;'>{{$t('Design and Creativity:'}}</span>\n" +
-                    "<span style='color: #E01073;'>Figma\n" +
-                    "Adobe Creative Cloud\n" +
-                    "Design Conception</span>",
-
-                orange: "<span class='skill_span' style='color: #CE3800;'>Web Development:</span>\n" +
-                    "<span style='color: #CE3800;'>Node.js\n" +
-                    "Vue\n" +
-                    "React\n" +
-                    "Rest API\n" +
-                    "Git</span>",
-
+                blue: {
+                    title: this.$t('programmingLanguages:'),
+                    content: "JavaScript\nHTML\nCSS\nSQL\nC#\nC\nPython\nKotlin",
+                    color: '#007ca5',
+                },
+                neon: {
+                    title: this.$t('myVibrantPersonality.'),
+                    content: "",
+                    color: '#F505EF'
+                },
+                pink: {
+                    title: this.$t('designAndCreativity:'),
+                    content: "Figma\nAdobe Creative Cloud\nDesign Conception",
+                    color: '#E01073',
+                },
+                orange: {
+                    title: this.$t('Web Development:'),
+                    content: "Node.js\nVue\nReact\nRest API\nGit",
+                    color: '#CE3800'
+                }
             }
-        }
+        };
 
     },
 
         methods: {
-        showText(bookColor) {
-            this.bookTextToShow = this.bookText[bookColor];
-            this.showSkill = true;
-            this.showingBookText = true;
+            showText(bookColor) {
+                const book = this.bookText[bookColor];
+                const title = `<span class="skill_span" style="color: ${book.color};">${book.title}</span>`;
+                const content = `<span class="book-content" style="color: ${book.color};">${book.content}</span>`;
+                this.bookTextToShow = `${title}\n${content}`;
+                this.showSkill = true;
+                this.showingBookText = true;
+            },
 
-        },
 
         setBlueBookActive() {
             this.isBlueBookActive = !this.isBlueBookActive;
@@ -176,6 +171,7 @@ export default {
 
 .text_container {
     align-items: center;
+    margin-left: 18%;
 }
 
 .ball_headline {
@@ -239,14 +235,17 @@ export default {
     font-family: 'Narnoor', sans-serif;
     font-weight: bold;
     font-size: 26px;
-    margin-left: 30px;
     white-space: pre-line;
     text-align: center;
 
 }
 
 .skill_span {
-    font-size: 26px;
+    font-size: 1.7rem;
+}
+
+.book-content {
+    font-size: 1.2rem;
 }
 
 .book {
@@ -271,39 +270,19 @@ export default {
     10% {
         transform: translateX(50%) rotate(-20deg);
     }
-    15% {
-        transform: translateX(50%) rotate(-40deg);
-    }
     20% {
-        transform: translateX(50%) rotate(-60deg);
-    }
-    25% {
-        transform: translateX(50%) rotate(-40deg);
+        transform: translateX(50%) rotate(20deg);
     }
     30% {
         transform: translateX(50%) rotate(-20deg);
     }
-    35% {
-        transform: translateX(50%) rotate(0deg);
-    }
     40% {
         transform: translateX(50%) rotate(20deg);
     }
-    45% {
-        transform: translateX(50%) rotate(40deg);
-    }
     50% {
-        transform: translateX(50%) rotate(60deg);
+        transform: translateX(50%) rotate(-20deg);
     }
-    55% {
-        transform: translateX(50%) rotate(40deg);
-    }
-    60% {
-        transform: translateX(50%) rotate(20deg);
-    }
-    65% {
-        transform: translateX(50%) rotate(0deg);
-    }
+
     70% {
         transform: translateX(40%) rotate(0deg);
     }
@@ -326,7 +305,7 @@ export default {
 
 .book.animate {
     animation-name: shake-book;
-    animation-duration: 1.7s;
+    animation-duration: 1.8s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
 }
@@ -372,6 +351,23 @@ export default {
 
     .skills_h2 {
         font-size:1rem;
+    }
+
+    #skill {
+        margin-left: 0;
+    }
+
+    .text_container {
+        margin-left: 2%;
+    }
+
+
+
+}
+
+@media screen and (min-width: 1500px) {
+    .text_container {
+        margin-left: 31%;;
     }
 
 }

@@ -79,9 +79,10 @@ export default {
 }
 
 
-@media screen and (min-width: 390px ) and (max-width: 768px) {
+@media screen and (min-width: 330px ) and (max-width: 768px) {
 .button {
-    font-size: 1rem;
+    font-size: 0.5rem;
+    padding: 8px 16px;
 
 
     }
