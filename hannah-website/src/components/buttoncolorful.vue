@@ -5,24 +5,32 @@
 </template>
 
 <script>
-import pdfDokument from "../assets/cv/Frank-Resume.pdf"
+import pdfDokument_DT from "@/assets/cv/Frank_Resume_DE.pdf"
+import pdfDokument_EN from "@/assets/cv/Frank_Resume_EN.pdf"
 
 export default {
+    data() {
+        return {
+            pdfDokument_DT,
+            pdfDokument_EN,
+            currentLanguage:"en"
+        };
+    },
     methods: {
-        downloadFile() {
-            const pdfUrl = pdfDokument;
-            const link = document.createElement('a');
-            link.href = pdfUrl;
-            link.target = '_blank';
-            link.download = 'Frank_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            downloadFile() {
+                const pdfUrl = this.currentLanguage === "en" ? this.pdfDokument_EN : this.pdfDokument_DT;
+                const fileName = this.currentLanguage === "en" ? "Frank_Resume.pdf" : "Frank_Lebenslauf.pdf";
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.target = '_blank';
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
 
-        }
     }
 }
-
 
 </script>
 

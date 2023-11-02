@@ -49,7 +49,7 @@
             </div>
              <div class="text_container">
                 <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
-            </div>
+             </div>
         </div>
     </div>
 </template>
@@ -61,6 +61,7 @@ import NeonBookImage from "@/assets/images/Book-neon.png";
 import PinkBookImage from "@/assets/images/Book-pink.png";
 import OrangeBookImage from "@/assets/images/Book-orange.png";
 import Roundball from "@/components/roundball.vue";
+import { useI18n } from 'vue-i18n';
 
 
 export default {
@@ -84,22 +85,22 @@ export default {
             bookTextToShow: "",
             bookText: {
                 blue: {
-                    title: this.$t('programmingLanguages:'),
+                    title: this.$t('programmingLanguages'),
                     content: "JavaScript\nHTML\nCSS\nSQL\nC#\nC\nPython\nKotlin",
                     color: '#007ca5',
                 },
                 neon: {
-                    title: this.$t('myVibrantPersonality.'),
+                    title: this.$t('myVibrantPersonality'),
                     content: "",
                     color: '#F505EF'
                 },
                 pink: {
-                    title: this.$t('designAndCreativity:'),
+                    title: this.$t('designAndCreativity'),
                     content: "Figma\nAdobe Creative Cloud\nDesign Conception",
                     color: '#E01073',
                 },
                 orange: {
-                    title: this.$t('Web Development:'),
+                    title: this.$t('Web Development'),
                     content: "Node.js\nVue\nReact\nRest API\nGit",
                     color: '#CE3800'
                 }
@@ -109,7 +110,26 @@ export default {
     },
 
         methods: {
+            scrolltoSkill() {
+                const bookElement = document.getElementById('skill')
+                const screenWidth = window.innerWidth;
+                if (bookElement) {
+                    if (screenWidth < 769) {
+                        bookElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                        })
+                    } else {
+                        bookElement.scrollIntoView({
+                            behavior: 'auto',
+                        })
+                    }
+                }
+
+            },
+
             showText(bookColor) {
+                this.scrolltoSkill()
                 const book = this.bookText[bookColor];
                 const title = `<span class="skill_span" style="color: ${book.color};">${book.title}</span>`;
                 const content = `<span class="book-content" style="color: ${book.color};">${book.content}</span>`;
@@ -161,13 +181,17 @@ export default {
 
     beforeDestroy() {
         window.removeEventListener('click', this.hideText)
-    }
+    },
 }
 
 </script>
 
 
 <style>
+
+.book:hover {
+    cursor: pointer;
+}
 
 .text_container {
     align-items: center;
@@ -359,15 +383,15 @@ export default {
 
     .text_container {
         margin-left: 2%;
+        scroll-margin-top: 4rem;
     }
-
-
 
 }
 
+
 @media screen and (min-width: 1500px) {
     .text_container {
-        margin-left: 31%;;
+        margin-left: 31%;
     }
 
 }

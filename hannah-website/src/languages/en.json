@@ -6,8 +6,8 @@
   "welcome": "Welcome to my portfolio website!",
   "myNameIs": "My name is {name}",
   "student": "and I am a Creative Computing student.",
-  "myvibrantpersonality.": "My vibrant personality.",
-  "designandcreativity:": "Design and Creativity:",
+  "myVibrantPersonality": "My vibrant personality.",
+  "designAndCreativity": "Design and Creativity:",
   "project1Name": "BLOURISH AND FLOTTS",
   "project1Semester": "Second semester - BSc Creative Computing",
   "project1Text": "A magical online bookshop",
@@ -15,7 +15,7 @@
   "project2Semester": "First semester - BSc Creative Computing",
   "project2Text": "Glasses Hunt: 2D Jump-and-Run Game",
   "viewProject": "View Project",
-  "programmingLanguages:": "Programming Languages:"
+  "programmingLanguages": "Programming Languages:"
 }
 
 

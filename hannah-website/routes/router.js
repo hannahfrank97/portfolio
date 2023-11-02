@@ -19,6 +19,14 @@ const routes = [
         component: () => import('../src/views/resume.vue')
     },
 
+    {
+        path: '/projects/OrlandosAdventure',
+        name: 'OrlandosAdventure',
+        beforeEnter: (to, from, next) => {
+            window.location.href = '';
+            },
+    }
+
 
 ];
 

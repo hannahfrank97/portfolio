@@ -1,6 +1,6 @@
 <template>
     <div class="navbar_container">
-        <div class="logo">HANNAH</div>
+        <div class="logo">HANNAH FRANK</div>
         <ul class="navbar">
             <li class="navbar_link">
                 <router-link to="/" class="navbar_link_text" :class="{'colorChange': isColorChange1, 'colorChangeActive': isActive('/')}"
@@ -43,7 +43,7 @@ import {computed} from "vue";
 export default {
     data() {
         return {
-            currentLanguage:"EN"
+            currentLanguage:"en"
         };
     },
 
@@ -107,7 +107,6 @@ export default {
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
-    margin-left: 20px;
 }
 
 .navbar {
@@ -142,13 +141,13 @@ export default {
 
 /* RESPONSIVE DESIGNS*/
 
-@media screen and (max-width: 330px) {
+@media screen and (min-width: 330px) and (max-width: 576px) {
     .navbar{
         gap: 3%
     }
 
     .logo {
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
 
     .navbar_link_text {
@@ -160,12 +159,19 @@ export default {
     .navbar {
         gap: 2%;
     }
-}
 
-@media screen and (max-width: 360px) {
-    .navbar {
+    .logo {
+        font-size: 2.2rem;
     }
+
 }
 
+@media screen and (min-width: 769px)  {
+
+    .logo {
+        margin-left: 3%;
+    }
+
+}
 
 </style>
