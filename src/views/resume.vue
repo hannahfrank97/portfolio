@@ -135,6 +135,11 @@ export default {
     .pdf-page-container {
         margin: 2% 0;
     }
+
+    .bullet {
+        width:1rem;
+        height:1rem;
+    }
     
 }
 

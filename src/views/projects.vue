@@ -28,7 +28,7 @@ export default {
                 semesterKey: "project1Semester",
                 textKey: "project1Text",
                 link: "#",
-                code: "#",
+                code: "https://github.com/hannahfrank97/BlourishAndFlotts",
                 image: project1_image,
             },
 
@@ -37,7 +37,7 @@ export default {
                 semesterKey: "project2Semester",
                 textKey: "project2Text",
                 link: "#",
-                code: "#",
+                code: "https://github.com/hannahfrank97/OrlandosAdventure",
                 image: project2_image,
             },
         }

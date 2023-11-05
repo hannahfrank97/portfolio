@@ -14,8 +14,7 @@
                     <router-link :to="project.link" class="project_Link">{{ $t('viewProject') }}</router-link>
                 </div>
                 <div class="project_info2"></div>
-                <router-link :to="project.code" class="project_Link2">Source Code</router-link>
-
+                <a :href="project.code" class="project_Link2" target="_blank">Source Code</a>
             </div>
         </div>
         <div class="middle_side">
