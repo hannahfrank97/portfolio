@@ -1,15 +1,27 @@
 <template>
     <navbar />
     <linehorizontal />
-    <buttoncolorful />
+    <buttoncolorful :activePage="activePage"/>
     <div>
-        <div v-if="currentLanguage === 'en'" class="pdf-container">
-            <div class="pdf-page-container">
-                <img class="pdf-page_1" :src="page1" alt="Resume page 1">
+        <div class="bullets">
+            <div class="bullet" :class="{ active: activePage <= 2 }" @click="changePage(1)"></div>
+            <div class="bullet" :class="{ active: activePage > 2 }" @click="changePage(3)"></div>
+        </div>
+    </div>
+    <div>
+        <div class="pdf-container">
+            <div class="pdf-page-container" v-if="activePage<=2">
+                <img class="pdf-page_1" :src="page1_EN" alt="Resume page1">
             </div>
-            <div class="pdf-page-container">
-                <img class="pdf-page_2" :src="page2" alt="Resume page 2">
+            <div class="pdf-page-container" v-if="activePage<=2">
+                <img class="pdf-page_2" :src="page2_EN" alt="Resume page2">
             </div>
+        <div class="pdf-page-container" v-if="activePage>2">
+            <img class="pdf-page_1" :src="page1_DT" alt="Lebenslauf Seite1">
+        </div>
+        <div class="pdf-page-container" v-if="activePage>2">
+            <img class="pdf-page_2" :src="page2_DT" alt="Lebenslauf Seite2">
+        </div>
         </div>
     </div>
 </template>
@@ -28,35 +40,65 @@ export default {
         linehorizontal,
         buttoncolorful,
         Navbar,
+        page1_DT,
+        page2_DT,
+        page1_EN,
+        page2_EN,
     },
 
     data() {
         return {
+            activePage: 1,
             page1_DT,
             page2_DT,
             page1_EN,
             page2_EN,
-            currentLanguage: "en",
         };
+
     },
 
-    computed: {
-        page1() {
-            console.log('Current Language in page1 computed:', this.$root.currentLanguage);
-            return this.currentLanguage === "en" ? this.page1_EN : this.page1_DT;
-        },
+    methods: {
+        changePage(page) {
+            if (page ===1) {
+                this.activePage = 1;
+            } else if (page === 3) {
+                this.activePage = 3;
+            }
 
-        page2() {
-            console.log('Current Language in page2 computed:', this.$root.currentLanguage);
-            return this.currentLanguage === "en" ? this.page2_EN : this.page2_DT;
-        },
-
+        }
     }
 }
 
 </script>
 
 <style>
+
+.bullets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    gap: 2.5%;
+
+}
+
+.bullet {
+    cursor: pointer;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+}
+
+.bullet.active {
+    background-color: #EA70DE;
+    border: 1px solid #E7BDE2;
+}
+
+.bullet:not(.active) {
+    border: 1px solid #E7BDE2;
+
+}
+
 .pdf-container {
     width: 100%;
     display: flex;

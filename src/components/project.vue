@@ -144,7 +144,12 @@ export default {
     height: auto;
     align-items: center;
     border-radius: 6px;
+    transition: transform 0.3s;
 
+}
+
+.mockup1_image1:hover {
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 330px) {

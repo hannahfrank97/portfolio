@@ -18,8 +18,7 @@ import '@/stylesheets/styles.css';
 const app = createApp(App);
 
 app.config.globalProperties.$root = app;
-app.config.globalProperties.currentLanguage = "en";
-
+app.provide('currentLanguage', app.config.globalProperties.currentLanguage);
 app.use(i18n);
 
 app.use(router);

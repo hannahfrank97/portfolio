@@ -9,17 +9,20 @@ import pdfDokument_DT from "@/assets/cv/Frank_Resume_DE.pdf"
 import pdfDokument_EN from "@/assets/cv/Frank_Resume_EN.pdf"
 
 export default {
+    props: {
+        activePage: Number,
+    },
+
     data() {
         return {
             pdfDokument_DT,
             pdfDokument_EN,
-            currentLanguage:"en"
         };
     },
     methods: {
             downloadFile() {
-                const pdfUrl = this.currentLanguage === "en" ? this.pdfDokument_EN : this.pdfDokument_DT;
-                const fileName = this.currentLanguage === "en" ? "Frank_Resume.pdf" : "Frank_Lebenslauf.pdf";
+                const pdfUrl = this.activePage <= 2  ? this.pdfDokument_EN : this.pdfDokument_DT;
+                const fileName = this.activePage <= 2 ? "Frank_Resume.pdf" : "Frank_Lebenslauf.pdf";
                 const link = document.createElement('a');
                 link.href = pdfUrl;
                 link.target = '_blank';
@@ -33,8 +36,6 @@ export default {
 }
 
 </script>
-
-
 
 <style>
 

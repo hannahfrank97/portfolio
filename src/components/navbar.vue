@@ -43,7 +43,7 @@ import {computed} from "vue";
 export default {
     data() {
         return {
-            currentLanguage:"en"
+            currentLanguage:"EN"
         };
     },
 
@@ -55,7 +55,9 @@ export default {
 
     methods: {
         selectLanguage() {
+            console.log('Before language change:', this.currentLanguage);
             this.currentLanguage = this.currentLanguage === "EN" ? "DE" : "EN"
+            console.log('After language change:', this.currentLanguage);
             this.$i18n.locale = this.currentLanguage.toLowerCase();
         }
     },
