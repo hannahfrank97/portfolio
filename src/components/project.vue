@@ -11,10 +11,10 @@
             <div class="right-content">
                 <p class="project_text">{{ $t(project.textKey) }}</p>
                 <div class="project_info">
-                    <router-link :to="project.link" class="project_Link">{{ $t('viewProject') }}</router-link>
+                    <a :href="project.link" class="project_Link" target="_blank">{{ $t('viewProject') }}</a>
                 </div>
                 <div class="project_info2"></div>
-                <a :href="project.code" class="project_Link2" target="_blank">Source Code</a>
+                    <a :href="project.code" class="project_Link2" target="_blank">Source Code</a>
             </div>
         </div>
         <div class="middle_side">

@@ -1,22 +1,29 @@
-FROM node:latest
+FROM node:latest as build-stage
 
-# install simple http server for serving static content
-RUN npm install -g http-server
-
-# make the 'app' folder the current working directory
 WORKDIR /app
 
-# copy both 'package.json' and 'package-lock.json' (if available)
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# install project dependencies
+# Install project dependencies
 RUN npm install
 
-# copy project files and folders to the current working directory (i.e. 'app' folder)
+# Copy project files and folders to the working directory
 COPY . .
 
-# build app for production with minification
+# Build the app for production with minification
 RUN npm run build
 
+# Stage 2: Set up Nginx to serve the built application
+FROM nginx:stable-alpine as production-stage
+
+# Copy the built app to Nginx's serve directory
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Override the default Nginx configuration
+# This configuration ensures that SPA routing works correctly
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 8080
-CMD [ "http-server", "dist" ]
+
+CMD ["nginx", "-g", "daemon off;"]

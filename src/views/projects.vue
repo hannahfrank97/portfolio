@@ -27,7 +27,7 @@ export default {
                 nameKey: "project1Name",
                 semesterKey: "project1Semester",
                 textKey: "project1Text",
-                link: "#",
+                link: "http://localhost/orlandos-adventure",
                 code: "https://github.com/hannahfrank97/BlourishAndFlotts",
                 image: project1_image,
             },
