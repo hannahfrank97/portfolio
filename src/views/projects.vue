@@ -36,7 +36,7 @@ export default {
                 nameKey: "project2Name",
                 semesterKey: "project2Semester",
                 textKey: "project2Text",
-                link: "http://hannahfrank.at/orlandos-adventure",
+                link: "http://www.hannahfrank.at/orlandos-adventure",
                 code: "https://github.com/hannahfrank97/OrlandosAdventure",
                 image: project2_image,
             },
