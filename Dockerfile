@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Set up Nginx to serve the built application
-FROM nginx:stable-alpine as production-stage
+FROM nginx:1.25.3-alpine as production-stage
 
 # Copy the built app to Nginx's serve directory
 COPY --from=build-stage /app/dist /usr/share/nginx/html
