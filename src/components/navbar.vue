@@ -125,7 +125,7 @@ export default {
 .navbar_link_text {
     color: #E2C8C8;
     font-family: 'Akatab', sans-serif;
-    font-size: 20px;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
