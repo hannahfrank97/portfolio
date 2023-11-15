@@ -1,6 +1,8 @@
 <template>
     <div class="navbar_container">
-        <div class="logo">HANNAH FRANK</div>
+        <router-link to="/">
+            <div class="logo">HANNAH FRANK</div>
+        </router-link>
         <ul class="navbar">
             <li class="navbar_link">
                 <router-link to="/" class="navbar_link_text" :class="{'colorChange': isColorChange1, 'colorChangeActive': isActive('/')}"

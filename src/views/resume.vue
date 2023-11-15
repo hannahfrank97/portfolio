@@ -4,8 +4,8 @@
     <buttoncolorful :activePage="activePage"/>
     <div>
         <div class="bullets">
-            <div class="bullet" :class="{ active: activePage <= 2 }" @click="changePage(1)"></div>
-            <div class="bullet" :class="{ active: activePage > 2 }" @click="changePage(3)"></div>
+            <div class="bullet" :class="{ active: activePage <= 2 }" @click="changePage(1)">EN</div>
+            <div class="bullet" :class="{ active: activePage > 2 }" @click="changePage(3)">DE</div>
         </div>
     </div>
     <div>
@@ -30,8 +30,8 @@
 import Navbar from "@/components/navbar.vue";
 import buttoncolorful from "@/components/buttoncolorful.vue";
 import linehorizontal from "@/components/linehorizontal.vue";
-import page1_DT from "@/assets/cv/Frank_Resume_DT_1.png";
-import page2_DT from "@/assets/cv/Frank_Resume_DT_2.png";
+import page1_DT from "@/assets/cv/Frank_Resume_DE_1.png";
+import page2_DT from "@/assets/cv/Frank_Resume_DE_2.png";
 import page1_EN from "@/assets/cv/Frank_Resume_EN_1.png";
 import page2_EN from "@/assets/cv/Frank_Resume_EN_2.png";
 
@@ -84,9 +84,13 @@ export default {
 
 .bullet {
     cursor: pointer;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.9rem;
+    height: 1.9rem;
     border-radius: 50%;
+    font-family: 'Narnoor', sans-serif;
+    color: #E7BDE2;
+    text-align: center;
+
 }
 
 .bullet.active {
@@ -139,6 +143,10 @@ export default {
     .bullet {
         width:1rem;
         height:1rem;
+    }
+
+    .bullet {
+        font-size: 0.5rem;
     }
     
 }
