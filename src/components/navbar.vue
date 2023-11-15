@@ -1,6 +1,6 @@
 <template>
     <div class="navbar_container">
-        <router-link to="/">
+        <router-link class="logo_link" to="/">
             <div class="logo">HANNAH FRANK</div>
         </router-link>
         <ul class="navbar">
@@ -110,6 +110,10 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-decoration: none;
+}
+
+.logo_link {
     text-decoration: none;
 }
 

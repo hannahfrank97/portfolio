@@ -6,8 +6,8 @@
                 <h1 class="project_name">{{ $t(project.nameKey) }}</h1>
 
             </div>
-            <h2 class="project_device">{{ $t(project.info) }}</h2>
             <h2 class="project_semester">{{ $t(project.semesterKey) }}</h2>
+            <h2 class="project_device">{{ $t(project.info) }}</h2>
         </div>
         <div class="right_side">
             <div class="right-content">
