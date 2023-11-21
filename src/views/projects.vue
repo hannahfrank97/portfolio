@@ -26,6 +26,7 @@ export default {
             project1: {
                 nameKey: "project1Name",
                 semesterKey: "project1Semester",
+                info:"",
                 textKey: "project1Text",
                 link: "https://www.hannahfrank.at/blourish-and-flotts",
                 code: "https://github.com/hannahfrank97/BlourishAndFlotts",
@@ -35,6 +36,7 @@ export default {
             project2: {
                 nameKey: "project2Name",
                 semesterKey: "project2Semester",
+                info: "project2Info",
                 textKey: "project2Text",
                 link: "https://www.hannahfrank.at/orlandos-adventure",
                 code: "https://github.com/hannahfrank97/OrlandosAdventure",

@@ -1,6 +1,8 @@
 <template>
     <div class="navbar_container">
-        <div class="logo">HANNAH FRANK</div>
+        <router-link class="logo_link" to="/">
+            <div class="logo">HANNAH FRANK</div>
+        </router-link>
         <ul class="navbar">
             <li class="navbar_link">
                 <router-link to="/" class="navbar_link_text" :class="{'colorChange': isColorChange1, 'colorChangeActive': isActive('/')}"
@@ -111,6 +113,10 @@ export default {
     text-decoration: none;
 }
 
+.logo_link {
+    text-decoration: none;
+}
+
 .navbar {
     list-style-type: none;
     display: flex;
@@ -125,7 +131,7 @@ export default {
 .navbar_link_text {
     color: #E2C8C8;
     font-family: 'Akatab', sans-serif;
-    font-size: 20px;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

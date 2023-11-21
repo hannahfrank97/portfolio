@@ -4,8 +4,10 @@
             <div class="left-content">
                 <roundball class="roundball" />
                 <h1 class="project_name">{{ $t(project.nameKey) }}</h1>
+
             </div>
             <h2 class="project_semester">{{ $t(project.semesterKey) }}</h2>
+            <h2 class="project_device">{{ $t(project.info) }}</h2>
         </div>
         <div class="right_side">
             <div class="right-content">
@@ -91,6 +93,13 @@ export default {
 .project_info {
     display: flex;
     align-items: center;
+}
+
+.project_device {
+    font-family: 'Narnoor', sans-serif;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .project_info2 {
