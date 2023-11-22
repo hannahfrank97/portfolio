@@ -129,13 +129,16 @@ export default {
             },
 
             showText(bookColor) {
-                this.scrolltoSkill()
                 const book = this.bookText[bookColor];
                 const title = `<span class="skill_span" style="color: ${book.color};">${book.title}</span>`;
                 const content = `<span class="book-content" style="color: ${book.color};">${book.content}</span>`;
                 this.bookTextToShow = `${title}\n${content}`;
                 this.showSkill = true;
                 this.showingBookText = true;
+
+                this.$nextTick(() => {
+                    this.scrolltoSkill();
+                });
             },
 
 
