@@ -160,7 +160,7 @@ export default {
     transform: scale(1.05);
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 400px) {
 
     .right-content {
         margin-left: 5%;
