@@ -119,7 +119,7 @@ export default {
                             behavior: 'smooth',
                             block: 'start',
                         })
-                    } else {
+                    }else {
                         bookElement.scrollIntoView({
                             behavior: 'auto',
                         })

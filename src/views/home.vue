@@ -2,9 +2,10 @@
     <div class="container">
     <navbar />
     <h1 class="headline">
-        <span class="regular-text">{{$t('welcome')}}</span><br><br>
-        <span class="regular-text">{{$t('myNameIs')}} </span><span class="highlight-text">Hannah Frank</span><br><br>
-        <span class="regular-text">{{$t('student')}} </span>
+        <span class="regular-text">{{$t('welcome')}}</span>
+        <span class="regular-text">{{$t('myNameIs')}} </span>
+        <span class="highlight-text">Hannah</span><br>
+        <span class="regular-text">{{$t('student')}} </span><br>
     </h1>
     <linehorizontal />
     <Bookshelf />
@@ -36,7 +37,7 @@ export default {
 .headline {
     text-align: center;
     width: 100%;
-    margin-top: 15rem;
+    margin-top: 8rem;
 }
 
 .highlight-text {

@@ -4,25 +4,19 @@
     <buttoncolorful :activePage="activePage"/>
     <div>
         <div class="bullets">
-            <div class="bullet" :class="{ active: activePage <= 2 }" @click="changePage(1)">EN</div>
-            <div class="bullet" :class="{ active: activePage > 2 }" @click="changePage(3)">DE</div>
+            <div class="bullet" :class="{ active: activePage <= 1 }" @click="changePage(1)">EN</div>
+            <div class="bullet" :class="{ active: activePage > 1 }" @click="changePage(2)">DE</div>
         </div>
     </div>
     <div>
         <div class="pdf-container">
-            <div class="pdf-page-container" v-if="activePage<=2">
-                <img class="pdf-page_1" :src="page1_EN" alt="Resume page1">
+            <div class="pdf-page-container" v-if="activePage<=1">
+                <img class="pdf-page_1" :src="page_EN" alt="Resume">
             </div>
-            <div class="pdf-page-container" v-if="activePage<=2">
-                <img class="pdf-page_2" :src="page2_EN" alt="Resume page2">
-            </div>
-        <div class="pdf-page-container" v-if="activePage>2">
-            <img class="pdf-page_1" :src="page1_DT" alt="Lebenslauf Seite1">
+        <div class="pdf-page-container" v-if="activePage>1">
+            <img class="pdf-page_1" :src="page_DT" alt="Lebenslauf">
         </div>
-        <div class="pdf-page-container" v-if="activePage>2">
-            <img class="pdf-page_2" :src="page2_DT" alt="Lebenslauf Seite2">
-        </div>
-        </div>
+    </div>
     </div>
 </template>
 
@@ -30,29 +24,24 @@
 import Navbar from "@/components/navbar.vue";
 import buttoncolorful from "@/components/buttoncolorful.vue";
 import linehorizontal from "@/components/linehorizontal.vue";
-import page1_DT from "@/assets/cv/Frank_Resume_DE_1.png";
-import page2_DT from "@/assets/cv/Frank_Resume_DE_2.png";
-import page1_EN from "@/assets/cv/Frank_Resume_EN_1.png";
-import page2_EN from "@/assets/cv/Frank_Resume_EN_2.png";
+import page_DT from "@/assets/cv/Frank_Resume_DE.png";
+import page_EN from "@/assets/cv/Frank_Resume_EN.png";
 
 export default {
     components: {
         linehorizontal,
         buttoncolorful,
         Navbar,
-        page1_DT,
-        page2_DT,
-        page1_EN,
-        page2_EN,
+        page_DT,
+        page_EN,
     },
 
     data() {
         return {
             activePage: 1,
-            page1_DT,
-            page2_DT,
-            page1_EN,
-            page2_EN,
+            page_DT,
+            page_EN
+
         };
 
     },
@@ -61,8 +50,8 @@ export default {
         changePage(page) {
             if (page ===1) {
                 this.activePage = 1;
-            } else if (page === 3) {
-                this.activePage = 3;
+            } else if (page === 2) {
+                this.activePage = 2;
             }
 
         }
@@ -119,14 +108,12 @@ export default {
 
 }
 
-.pdf-page_1,
-.pdf-page_2 {
+.pdf-page_1{
     width: 80%;
     transition: transform 0.3s;
 }
 
-.pdf-page-container:hover .pdf-page_1,
-.pdf-page-container:hover .pdf-page_2 {
+.pdf-page-container:hover .pdf-page_1 {
     transform: scale(0.96);
 
 }
