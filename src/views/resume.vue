@@ -109,7 +109,7 @@ export default {
 }
 
 .pdf-page_1{
-    width: 80%;
+    width: 60%;
     transition: transform 0.3s;
 }
 
