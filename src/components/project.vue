@@ -2,7 +2,7 @@
     <div class="content_box">
         <div class="left_side">
             <div class="left-content">
-                <roundball class="roundball" />
+                <roundball class="roundball"/>
                 <h1 class="project_name">{{ $t(project.nameKey) }}</h1>
 
             </div>
@@ -12,15 +12,15 @@
         <div class="right_side">
             <div class="right-content">
                 <p class="project_text">{{ $t(project.textKey) }}</p>
-                <div class="project_info">
+                <div class="project_info" v-if="project.link">
                     <a :href="project.link" class="project_Link" target="_blank">{{ $t('viewProject') }}</a>
                 </div>
                 <div class="project_info2"></div>
-                    <a :href="project.code" class="project_Link2" target="_blank">Source Code</a>
+                <a :href="project.code" class="project_Link2" target="_blank">Source Code</a>
             </div>
         </div>
         <div class="middle_side">
-            <img :src="project.image" class="mockup1_image1" alt="project image one"/>
+            <img :src="project.image" alt="project image one" class="mockup1_image1"/>
         </div>
     </div>
 
@@ -148,7 +148,7 @@ export default {
 }
 
 .mockup1_image1 {
-    width:  80%;
+    width: 70%;
     height: auto;
     align-items: center;
     border-radius: 6px;
@@ -179,12 +179,11 @@ export default {
     }
 
     .mockup1_image1 {
-        width:  100%;
+        width: 100%;
         height: auto;
     }
 
 }
-
 
 
 </style>

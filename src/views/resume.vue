@@ -1,22 +1,22 @@
 <template>
-    <navbar />
-    <linehorizontal />
+    <navbar/>
+    <linehorizontal/>
     <buttoncolorful :activePage="activePage"/>
     <div>
         <div class="bullets">
-            <div class="bullet" :class="{ active: activePage <= 1 }" @click="changePage(1)">EN</div>
-            <div class="bullet" :class="{ active: activePage > 1 }" @click="changePage(2)">DE</div>
+            <div :class="{ active: activePage <= 1 }" class="bullet" @click="changePage(1)">EN</div>
+            <div :class="{ active: activePage > 1 }" class="bullet" @click="changePage(2)">DE</div>
         </div>
     </div>
     <div>
         <div class="pdf-container">
-            <div class="pdf-page-container" v-if="activePage<=1">
-                <img class="pdf-page_1" :src="page_EN" alt="Resume">
+            <div v-if="activePage<=1" class="pdf-page-container">
+                <img :src="page_EN" alt="Resume" class="pdf-page_1">
             </div>
-        <div class="pdf-page-container" v-if="activePage>1">
-            <img class="pdf-page_1" :src="page_DT" alt="Lebenslauf">
+            <div v-if="activePage>1" class="pdf-page-container">
+                <img :src="page_DT" alt="Lebenslauf" class="pdf-page_1">
+            </div>
         </div>
-    </div>
     </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
 
     methods: {
         changePage(page) {
-            if (page ===1) {
+            if (page === 1) {
                 this.activePage = 1;
             } else if (page === 2) {
                 this.activePage = 2;
@@ -108,7 +108,7 @@ export default {
 
 }
 
-.pdf-page_1{
+.pdf-page_1 {
     width: 60%;
     transition: transform 0.3s;
 }
@@ -118,9 +118,9 @@ export default {
 
 }
 
-@media (min-width: 330px) and (max-width: 576px){
+@media (min-width: 330px) and (max-width: 576px) {
     .pdf-container {
-        flex-direction:column;
+        flex-direction: column;
     }
 
     .pdf-page-container {
@@ -128,14 +128,14 @@ export default {
     }
 
     .bullet {
-        width:1rem;
-        height:1rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     .bullet {
         font-size: 0.5rem;
     }
-    
+
 }
 
 

@@ -1,14 +1,14 @@
 <template>
     <div class="container">
-    <navbar />
-    <h1 class="headline">
-        <span class="regular-text">{{$t('welcome')}}</span>
-        <span class="regular-text">{{$t('myNameIs')}} </span>
-        <span class="highlight-text">Hannah</span><br>
-        <span class="regular-text">{{$t('student')}} </span><br>
-    </h1>
-    <linehorizontal />
-    <Bookshelf />
+        <navbar/>
+        <h1 class="headline">
+            <span class="regular-text">{{ $t('welcome') }}</span>
+            <span class="regular-text">{{ $t('myNameIs') }} </span>
+            <span class="highlight-text">Hannah</span><br>
+            <span class="regular-text">{{ $t('student') }} </span><br>
+        </h1>
+        <linehorizontal/>
+        <Bookshelf/>
     </div>
 </template>
 
@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style>
-
 
 
 .headline {
@@ -61,7 +60,7 @@ export default {
 
 /* RESPONSIVE DESIGNS*/
 
-@media screen and (min-width: 330px ) and (max-width: 576px)  {
+@media screen and (min-width: 330px ) and (max-width: 576px) {
     .highlight-text {
         font-size: 2.4rem;
 

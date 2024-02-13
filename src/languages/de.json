@@ -3,20 +3,23 @@
   "clickBooksToLearn": "Klicke auf die bunten Bücher, um mehr über <br> meine Skills zu erfahren",
   "myProjects": "Meine Projekte",
   "myResume": "Mein Lebenslauf",
-  "welcome": "Hi! I´m",
-  "myNameIs": "{name},",
+  "welcome": "Hi! I´m ",
+  "myNameIs": "{name}",
   "student": "where coding meets creativity!",
   "myVibrantPersonality": "Meine schillernde Persönlichkeit.",
   "designAndCreativity": "Design und Kreativität:",
   "project1Name": "BLOURISH AND FLOTTS",
   "project1Semester": "Zweites Semester - BSc Creative Computing",
-  "project1Text": "Ein magischer Buchshop",
+  "project1Text": "Ein magischer Buchshop.",
   "project2Name": "ORLANDOS ABENTEUER",
   "project2Semester": "Erstes Semester - BSc Creative Computing",
   "project2Info": "Nur in der Desktop Ansicht spielbar!",
-  "project2Text": "Brillenjagd: 2D Jump-and-Run Spiel",
+  "project2Text": "Brillenjagd: 2D Jump-and-Run Spiel.",
+  "project3Name": "LEAFMINDER",
+  "project3Semester": "Drittes Semester - BSc Creative Computing",
+  "project3Info": "Nur auf Android Geräten spielbar!",
+  "project3Text": "Achtsame Pflege für deine Pflanzen.",
   "viewProject": "Projekt ansehen",
   "programmingLanguages": "Programmiersprachen:"
-
 }
 

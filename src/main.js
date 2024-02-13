@@ -1,9 +1,10 @@
-import { createApp } from 'vue';
+import {createApp} from 'vue';
 import App from './App.vue';
 import router from '../routes/router.js';
-import { createI18n } from 'vue-i18n';
+import {createI18n} from 'vue-i18n';
 import en from './languages/en.json'
 import de from './languages/de.json'
+import '@/stylesheets/styles.css';
 
 const i18n = createI18n({
     locale: 'en',
@@ -12,8 +13,6 @@ const i18n = createI18n({
         de,
     },
 });
-
-import '@/stylesheets/styles.css';
 
 const app = createApp(App);
 

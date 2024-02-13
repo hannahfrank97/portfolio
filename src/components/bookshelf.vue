@@ -1,55 +1,55 @@
 <template>
     <div class="container">
         <div class="headline_text_multiple">
-         <div class="ball_headline">
-            <h1 class="skills_headline">{{$t('mySkills')}}</h1>
-         </div>
-          <h2 class="skills_h2" v-html="$t('clickBooksToLearn')"></h2>
+            <div class="ball_headline">
+                <h1 class="skills_headline">{{ $t('mySkills') }}</h1>
+            </div>
+            <h2 class="skills_h2" v-html="$t('clickBooksToLearn')"></h2>
         </div>
         <div class="shelf_container">
             <div class="bookshelf_container">
-                <img class="bookshelf" :src="BookshelfImage" alt="Bookshelf">
+                <img :src="BookshelfImage" alt="Bookshelf" class="bookshelf">
                 <img
-                    class="book book_blue"
-                    :class="isBlueBookActive ? 'animate' : ''"
-                    :src="BlueBookImage"
-                    alt="Blue Book"
-                    @click="setBlueBookActive();
+                        :class="isBlueBookActive ? 'animate' : ''"
+                        :src="BlueBookImage"
+                        alt="Blue Book"
+                        class="book book_blue"
+                        @click="setBlueBookActive();
                     showText('blue');"
                 />
                 <img
-                    class="book book_neon"
-                    :class="isNeonBookActive ? 'animate' : ''"
-                    :src="NeonBookImage"
-                    alt="Neon Book"
-                    @click="setNeonBookActive();
+                        :class="isNeonBookActive ? 'animate' : ''"
+                        :src="NeonBookImage"
+                        alt="Neon Book"
+                        class="book book_neon"
+                        @click="setNeonBookActive();
                     showText('neon');"
 
                 />
 
                 <img
-                    class="book book_pink"
-                    :class="isPinkBookActive ? 'animate' : ''"
-                    :src="PinkBookImage"
-                    alt="Pink Book"
-                    @click="setPinkBookActive();
+                        :class="isPinkBookActive ? 'animate' : ''"
+                        :src="PinkBookImage"
+                        alt="Pink Book"
+                        class="book book_pink"
+                        @click="setPinkBookActive();
                     showText('pink');"
 
                 />
 
                 <img
-                    class="book book_orange"
-                    :class="isOrangeBookActive ? 'animate' : ''"
-                    :src="OrangeBookImage"
-                    alt="Orange Book"
-                    @click="setOrangeBookActive()
+                        :class="isOrangeBookActive ? 'animate' : ''"
+                        :src="OrangeBookImage"
+                        alt="Orange Book"
+                        class="book book_orange"
+                        @click="setOrangeBookActive()
                     showText('orange');"
 
                 />
             </div>
-             <div class="text_container">
+            <div class="text_container">
                 <p id="skill" :style="{display:showSkill? 'block' : 'none'}" v-html="bookTextToShow"></p>
-             </div>
+            </div>
         </div>
     </div>
 </template>
@@ -61,7 +61,6 @@ import NeonBookImage from "@/assets/images/Book-neon.png";
 import PinkBookImage from "@/assets/images/Book-pink.png";
 import OrangeBookImage from "@/assets/images/Book-orange.png";
 import Roundball from "@/components/roundball.vue";
-import { useI18n } from 'vue-i18n';
 
 
 export default {
@@ -109,37 +108,37 @@ export default {
 
     },
 
-        methods: {
-            scrolltoSkill() {
-                const bookElement = document.getElementById('skill')
-                const screenWidth = window.innerWidth;
-                if (bookElement) {
-                    if (screenWidth < 769) {
-                        bookElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start',
-                        })
-                    }else {
-                        bookElement.scrollIntoView({
-                            behavior: 'auto',
-                        })
-                    }
+    methods: {
+        scrolltoSkill() {
+            const bookElement = document.getElementById('skill')
+            const screenWidth = window.innerWidth;
+            if (bookElement) {
+                if (screenWidth < 769) {
+                    bookElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    })
+                } else {
+                    bookElement.scrollIntoView({
+                        behavior: 'auto',
+                    })
                 }
+            }
 
-            },
+        },
 
-            showText(bookColor) {
-                const book = this.bookText[bookColor];
-                const title = `<span class="skill_span" style="color: ${book.color};">${book.title}</span>`;
-                const content = `<span class="book-content" style="color: ${book.color};">${book.content}</span>`;
-                this.bookTextToShow = `${title}\n${content}`;
-                this.showSkill = true;
-                this.showingBookText = true;
+        showText(bookColor) {
+            const book = this.bookText[bookColor];
+            const title = `<span class="skill_span" style="color: ${book.color};">${book.title}</span>`;
+            const content = `<span class="book-content" style="color: ${book.color};">${book.content}</span>`;
+            this.bookTextToShow = `${title}\n${content}`;
+            this.showSkill = true;
+            this.showingBookText = true;
 
-                this.$nextTick(() => {
-                    this.scrolltoSkill();
-                });
-            },
+            this.$nextTick(() => {
+                this.scrolltoSkill();
+            });
+        },
 
 
         setBlueBookActive() {
@@ -150,31 +149,31 @@ export default {
 
         },
 
-            setPinkBookActive() {
-                this.isPinkBookActive = !this.isPinkBookActive;
-                this.isBlueBookActive = false;
-                this.isOrangeBookActive = false;
-                this.isNeonBookActive = false;
-            },
+        setPinkBookActive() {
+            this.isPinkBookActive = !this.isPinkBookActive;
+            this.isBlueBookActive = false;
+            this.isOrangeBookActive = false;
+            this.isNeonBookActive = false;
+        },
 
-            setNeonBookActive() {
-                this.isNeonBookActive = !this.isNeonBookActive;
-                this.isBlueBookActive = false;
-                this.isPinkBookActive = false;
-                this.isOrangeBookActive = false;
-            },
+        setNeonBookActive() {
+            this.isNeonBookActive = !this.isNeonBookActive;
+            this.isBlueBookActive = false;
+            this.isPinkBookActive = false;
+            this.isOrangeBookActive = false;
+        },
 
-            setOrangeBookActive() {
-                this.isOrangeBookActive = !this.isOrangeBookActive;
-                this.isBlueBookActive = false;
-                this.isPinkBookActive = false;
-                this.isNeonBookActive = false;
-            },
+        setOrangeBookActive() {
+            this.isOrangeBookActive = !this.isOrangeBookActive;
+            this.isBlueBookActive = false;
+            this.isPinkBookActive = false;
+            this.isNeonBookActive = false;
+        },
 
-            hideText() {
-                this.showingBookText = false;
+        hideText() {
+            this.showingBookText = false;
 
-            },
+        },
 
     },
 
@@ -345,10 +344,10 @@ export default {
 }
 
 .book_neon {
-        width: 15%;
-        top: 71%;
-        left: 51%;
-        height: auto;
+    width: 15%;
+    top: 71%;
+    left: 51%;
+    height: auto;
 
 }
 
@@ -377,7 +376,7 @@ export default {
     }
 
     .skills_h2 {
-        font-size:1rem;
+        font-size: 1rem;
     }
 
     #skill {

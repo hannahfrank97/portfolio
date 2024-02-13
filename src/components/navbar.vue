@@ -5,25 +5,28 @@
         </router-link>
         <ul class="navbar">
             <li class="navbar_link">
-                <router-link to="/" class="navbar_link_text" :class="{'colorChange': isColorChange1, 'colorChangeActive': isActive('/')}"
-                             @mouseover="isColorChange1 = true"
+                <router-link :class="{'colorChange': isColorChange1, 'colorChangeActive': isActive('/')}" class="navbar_link_text"
+                             to="/"
                              @mouseout="isColorChange1 = false"
+                             @mouseover="isColorChange1 = true"
                 >
                     Home
                 </router-link>
             </li>
             <li class="navbar_link">
-                <router-link to="/projects" class="navbar_link_text" :class="{'colorChange': isColorChange2, 'colorChangeActive': isActive('/projects')}"
-                             @mouseover="isColorChange2 = true"
+                <router-link :class="{'colorChange': isColorChange2, 'colorChangeActive': isActive('/projects')}" class="navbar_link_text"
+                             to="/projects"
                              @mouseout="isColorChange2 = false"
+                             @mouseover="isColorChange2 = true"
                 >
                     {{ $t('myProjects') }}
                 </router-link>
             </li>
             <li class="navbar_link">
-                <router-link to="/resume" class="navbar_link_text" :class="{'colorChange': isColorChange3, 'colorChangeActive': isActive('/resume')}"
-                             @mouseover="isColorChange3 = true"
+                <router-link :class="{'colorChange': isColorChange3, 'colorChangeActive': isActive('/resume')}" class="navbar_link_text"
+                             to="/resume"
                              @mouseout="isColorChange3 = false"
+                             @mouseover="isColorChange3 = true"
                 >
                     {{ $t('myResume') }}
                 </router-link>
@@ -36,16 +39,14 @@
 </template>
 
 
-
 <script>
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {useRoute} from "vue-router";
-import {computed} from "vue";
 
 export default {
     data() {
         return {
-            currentLanguage:"EN"
+            currentLanguage: "EN"
         };
     },
 
@@ -150,7 +151,7 @@ export default {
 /* RESPONSIVE DESIGNS*/
 
 @media screen and (min-width: 330px) and (max-width: 576px) {
-    .navbar{
+    .navbar {
         gap: 3%
     }
 
@@ -174,7 +175,7 @@ export default {
 
 }
 
-@media screen and (min-width: 769px)  {
+@media screen and (min-width: 769px) {
 
     .logo {
         margin-left: 3%;

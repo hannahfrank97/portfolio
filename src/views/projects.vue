@@ -1,15 +1,18 @@
 <template>
-    <navbar />
-    <linehorizontal />
-        <Project class="project1" :project="project1" />
-    <linehorizontal />
-        <Project class="project2" :project="project2" />
+    <navbar/>
+    <linehorizontal/>
+    <Project :project="project3" class="project3"/>
+    <linehorizontal/>
+    <Project :project="project1" class="project1"/>
+    <linehorizontal/>
+    <Project :project="project2" class="project2"/>
 </template>
 
 <script>
 import Project from "@/components/project.vue";
-import project1_image from "@/assets/images/project1_image.png";
-import project2_image from "@/assets/images/project2_image.png";
+import project1_image from "@/assets/images/BlourishFlotts.png";
+import project2_image from "@/assets/images/Orlando.png";
+import project3_image from "@/assets/images/Leafminder.png";
 import Navbar from "@/components/navbar.vue";
 import linehorizontal from "@/components/linehorizontal.vue";
 
@@ -21,12 +24,12 @@ export default {
         Project,
     },
 
-    data () {
+    data() {
         return {
             project1: {
                 nameKey: "project1Name",
                 semesterKey: "project1Semester",
-                info:"",
+                info: "",
                 textKey: "project1Text",
                 link: "https://www.hannahfrank.at/blourish-and-flotts",
                 code: "https://github.com/hannahfrank97/BlourishAndFlotts",
@@ -41,6 +44,15 @@ export default {
                 link: "https://www.hannahfrank.at/orlandos-adventure",
                 code: "https://github.com/hannahfrank97/OrlandosAdventure",
                 image: project2_image,
+            },
+            project3: {
+                nameKey: "project3Name",
+                semesterKey: "project3Semester",
+                info: "project3Info",
+                textKey: "project3Text",
+                link: "",
+                code: "https://github.com/hannahfrank97/Leafminder",
+                image: project3_image,
             },
         }
     }

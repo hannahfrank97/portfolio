@@ -1,10 +1,10 @@
 <template>
-    <navbar />
+    <navbar/>
     <div class="line"></div>
     <div class="content_box">
         <div class="left_side">
             <div class="left-content">
-                <roundball class="roundball" />
+                <roundball class="roundball"/>
                 <h1 class="project_name">FLOURISH <br> AND BLOTTS</h1>
             </div>
             <h2 class="project_semester">Second semester - BSc Creative Computing</h2>
@@ -13,16 +13,16 @@
             <div class="right-content">
                 <p class="project_text">A magical online bookshop.</p>
                 <div class="project_info">
-                    <router-link to="#" class="project_Link">View Project</router-link>
-                    <arrow class="arrow" />
+                    <router-link class="project_Link" to="#">View Project</router-link>
+                    <arrow class="arrow"/>
                 </div>
                 <div class="project_info2"></div>
-                <router-link to="#" class="project_Link2">Source Code</router-link>
-                <arrow class="arrow2" />
+                <router-link class="project_Link2" to="#">Source Code</router-link>
+                <arrow class="arrow2"/>
             </div>
         </div>
         <div class="middle_side">
-            <img class="mockup" src="@/assets/images/mockup.png" alt="project mockup"/>
+            <img alt="project mockup" class="mockup" src="@/assets/images/mockup.png"/>
         </div>
     </div>
 

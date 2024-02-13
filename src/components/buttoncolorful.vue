@@ -1,6 +1,6 @@
 <template>
     <div class="button_container">
-    <button class="button" @click="downloadFile">Download</button>
+        <button class="button" @click="downloadFile">Download</button>
     </div>
 </template>
 
@@ -20,17 +20,17 @@ export default {
         };
     },
     methods: {
-            downloadFile() {
-                const pdfUrl = this.activePage <= 2  ? this.pdfDokument_EN : this.pdfDokument_DT;
-                const fileName = this.activePage <= 2 ? "Frank_Resume.pdf" : "Frank_Lebenslauf.pdf";
-                const link = document.createElement('a');
-                link.href = pdfUrl;
-                link.target = '_blank';
-                link.download = fileName;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
+        downloadFile() {
+            const pdfUrl = this.activePage <= 2 ? this.pdfDokument_EN : this.pdfDokument_DT;
+            const fileName = this.activePage <= 2 ? "Frank_Resume.pdf" : "Frank_Lebenslauf.pdf";
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.target = '_blank';
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
     }
 }
@@ -44,6 +44,7 @@ export default {
     display: flex;
     justify-content: center;
 }
+
 .button {
     appearance: none;
     background-color: transparent;
@@ -53,7 +54,7 @@ export default {
     color: #E7BDE2;
     cursor: pointer;
     display: inline-block;
-    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 1.5rem;
     font-weight: 400;
     line-height: normal;
@@ -89,9 +90,9 @@ export default {
 
 
 @media screen and (min-width: 330px ) and (max-width: 768px) {
-.button {
-    font-size: 0.5rem;
-    padding: 8px 16px;
+    .button {
+        font-size: 0.5rem;
+        padding: 8px 16px;
 
 
     }

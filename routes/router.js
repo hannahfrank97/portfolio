@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
     {
@@ -24,7 +24,7 @@ const routes = [
         name: 'OrlandosAdventure',
         beforeEnter: (to, from, next) => {
             window.location.href = '';
-            },
+        },
     }
 
 
