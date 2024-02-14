@@ -12,7 +12,7 @@
 import Project from "@/components/project.vue";
 import project1_image from "@/assets/images/BlourishFlotts.png";
 import project2_image from "@/assets/images/Orlando.png";
-import project3_image from "@/assets/images/Leafminder.png";
+import project3_video from "@/assets/videos/Leafminder.mp4";
 import Navbar from "@/components/navbar.vue";
 import linehorizontal from "@/components/linehorizontal.vue";
 
@@ -52,7 +52,7 @@ export default {
                 textKey: "project3Text",
                 link: "",
                 code: "https://github.com/hannahfrank97/Leafminder",
-                image: project3_image,
+                video: project3_video
             },
         }
     }

@@ -20,7 +20,12 @@
             </div>
         </div>
         <div class="middle_side">
-            <img :src="project.image" alt="project image one" class="mockup1_image1"/>
+            <template v-if="project.image">
+                <img :src="project.image" alt="project image one" class="mockup1_image1"/>
+            </template>
+            <template v-else-if="project.video">
+                <video :src="project.video" alt="project video" class="mockup1_image1" autoplay loop muted/>
+            </template>
         </div>
     </div>
 
