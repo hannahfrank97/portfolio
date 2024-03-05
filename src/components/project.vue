@@ -188,6 +188,10 @@ export default {
         height: auto;
     }
 
+    .mockup1_image1:hover {
+        transform: none;
+    }
+
 }
 
 

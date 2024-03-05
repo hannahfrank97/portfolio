@@ -85,7 +85,7 @@ export default {
             bookText: {
                 blue: {
                     title: this.$t('programmingLanguages'),
-                    content: "JavaScript\nHTML\nCSS\nSQL\nC#\nC\nPython\nKotlin",
+                    content: "JavaScript\nHTML\nCSS\nSQL\nC#\nPython\nKotlin",
                     color: '#007ca5',
                 },
                 neon: {
@@ -100,7 +100,7 @@ export default {
                 },
                 orange: {
                     title: this.$t('Web Development'),
-                    content: "Node.js\nVue\nReact\nRest API\nGit",
+                    content: "Node.js\nVue.js\nReact\nRest API\nGit",
                     color: '#CE3800'
                 }
             }
