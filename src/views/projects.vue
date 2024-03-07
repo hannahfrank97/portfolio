@@ -1,18 +1,32 @@
 <template>
     <navbar/>
     <linehorizontal/>
-        <Project
+    <Project
             :project="project3"
             class="project3"
             v-motion-slide-visible-bottom
             :delay="300"
             :initial="{opacity: 0, y: 100}"
             :enter="{ opacity: 1, y: 0, scale: 1 }"
-        />
+    />
     <linehorizontal/>
-        <Project :project="project1" class="project1" v-motion-slide-visible-bottom :delay="3"/>
+    <Project
+            :project="project1"
+            class="project1"
+            v-motion-slide-visible-bottom
+            :delay="3"
+            :initial="{opacity: 0, y: 100}"
+            :enter="{ opacity: 1, y: 0, scale: 1 }"
+    />
     <linehorizontal/>
-        <Project :project="project2" class="project2" v-motion-slide-visible-bottom :delay="3"/>
+    <Project
+            :project="project2"
+            class="project2"
+            v-motion-slide-visible-bottom
+            :delay="3"
+            :initial="{opacity: 0, y: 100}"
+            :enter="{ opacity: 1, y: 0, scale: 1 }"
+    />
 </template>
 
 <script>
@@ -70,7 +84,6 @@ export default {
 </script>
 
 <style>
-
 
 
 </style>
