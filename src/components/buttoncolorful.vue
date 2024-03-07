@@ -1,5 +1,5 @@
 <template>
-    <div class="button_container">
+    <div class="button_container" v-motion-slide-visible-left :delay="300" >
         <button class="button" @click="downloadFile">Download</button>
     </div>
 </template>
@@ -7,8 +7,10 @@
 <script>
 import pdfDokument_DT from "@/assets/cv/Frank_Resume_DE.pdf"
 import pdfDokument_EN from "@/assets/cv/Frank_Resume_EN.pdf"
+import Project from "@/components/project.vue";
 
 export default {
+    components: {Project},
     props: {
         activePage: Number,
     },

@@ -3,13 +3,13 @@
     <linehorizontal/>
     <buttoncolorful :activePage="activePage"/>
     <div>
-        <div class="bullets">
+        <div class="bullets" v-motion-slide-visible-left :delay="100">
             <div :class="{ active: activePage <= 1 }" class="bullet" @click="changePage(1)">EN</div>
             <div :class="{ active: activePage > 1 }" class="bullet" @click="changePage(2)">DE</div>
         </div>
     </div>
     <div>
-        <div class="pdf-container">
+        <div class="pdf-container" v-motion-slide-visible-left :delay="100">
             <div v-if="activePage<=1" class="pdf-page-container">
                 <img :src="page_EN" alt="Resume" class="pdf-page_1">
             </div>

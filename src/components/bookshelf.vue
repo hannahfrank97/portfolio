@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-motion-slide-visible-left :delay="500">
         <transition name="fade-left" appear>
         <div class="headline_text_multiple">
             <div class="ball_headline">
