@@ -1,12 +1,14 @@
 <template>
     <div class="container">
         <navbar/>
+        <transition name="fade" appear>
         <h1 class="headline">
             <span class="regular-text">{{ $t('welcome') }}</span>
             <span class="regular-text">{{ $t('myNameIs') }} </span>
             <span class="highlight-text">Hannah</span><br>
             <span class="regular-text">{{ $t('student') }} </span><br>
         </h1>
+        </transition>
         <linehorizontal/>
         <Bookshelf/>
     </div>
@@ -31,6 +33,25 @@ export default {
 </script>
 
 <style>
+
+.fade-enter-active, .fade-appear-active {
+    transition: opacity 3s ease, transform 3s ease;
+}
+
+.fade-enter-from, .fade-appear-from {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.fade-leave-active {
+    transition: opacity 4s ease, transform 3s ease;
+}
+
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
 
 
 .headline {

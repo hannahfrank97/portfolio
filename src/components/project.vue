@@ -4,7 +4,6 @@
             <div class="left-content">
                 <roundball class="roundball"/>
                 <h1 class="project_name">{{ $t(project.nameKey) }}</h1>
-
             </div>
             <h2 class="project_semester">{{ $t(project.semesterKey) }}</h2>
             <h2 class="project_device">{{ $t(project.info) }}</h2>
@@ -24,11 +23,10 @@
                 <img :src="project.image" alt="project image one" class="mockup1_image1"/>
             </template>
             <template v-else-if="project.video">
-                <video :src="project.video" alt="project video" class="mockup1_image1" autoplay loop muted/>
+                <video :src="project.video" class="mockup1_image1" autoplay loop muted/>
             </template>
         </div>
     </div>
-
 </template>
 
 <script>

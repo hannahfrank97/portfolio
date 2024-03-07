@@ -1,11 +1,11 @@
 <template>
     <navbar/>
     <linehorizontal/>
-    <Project :project="project3" class="project3"/>
+        <Project :project="project3" class="project3"/>
     <linehorizontal/>
-    <Project :project="project1" class="project1"/>
+        <Project :project="project1" class="project1"/>
     <linehorizontal/>
-    <Project :project="project2" class="project2"/>
+        <Project :project="project2" class="project2"/>
 </template>
 
 <script>
@@ -62,6 +62,9 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+
+
+
 
 </style>

@@ -1,11 +1,13 @@
 <template>
     <div class="container">
+        <transition name="fade-left" appear>
         <div class="headline_text_multiple">
             <div class="ball_headline">
                 <h1 class="skills_headline">{{ $t('mySkills') }}</h1>
             </div>
             <h2 class="skills_h2" v-html="$t('clickBooksToLearn')"></h2>
         </div>
+        </transition>
         <div class="shelf_container">
             <div class="bookshelf_container">
                 <img :src="BookshelfImage" alt="Bookshelf" class="bookshelf">
@@ -191,6 +193,23 @@ export default {
 
 <style>
 
+/* Starting state of the entering element */
+.fade-left-enter-from {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+/* Transition state */
+.fade-left-enter-active, .fade-left-leave-active {
+    transition: opacity 4s ease, transform 2s ease;
+}
+
+/* Ending state of the leaving element */
+.fade-left-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
 .book:hover {
     cursor: pointer;
 }
@@ -255,6 +274,8 @@ export default {
 
 .bookshelf {
     width: 100%;
+
+
 }
 
 #skill {
